@@ -160,7 +160,7 @@ body {
   opacity: 1;
 }
 .slick-list {
-  width: 100%;
+  width: 100vw;
   float: left;
 }
 #header {
@@ -184,6 +184,9 @@ body {
   -moz-transition: all 250ms ease-in-out;
   -o-transition: all 250ms ease-in-out;
   -ms-transition: all 250ms ease-in-out;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 #header .mobile-header img {
   max-width: 100%;

@@ -2,8 +2,18 @@
   if ($(window).width() <768) {//Programação para dispositivos mobile
     //variaveis
     var headerHeight = $('.mobile-header').height();
+
+
     $('.header-distance').css('margin-top', headerHeight+50);
-    //mobile header
+    //mobile header cide
+    $(window).scroll(function(){//making a fixed header
+      if($(this).scrollTop() > headerHeight){
+              $('.header-mobile').addClass("fixed-header");
+      }else{
+              $('.header-mobile').removeClass("fixed-header");
+      }
+    });
+
     $('.switch-header-mobile').click(function(event) {
       $('.header-menu').addClass('actived');
       $('.rollback-area').addClass('shown');
