@@ -1,0 +1,69 @@
+.text-center
+  text-align center
+
+.text-title
+  font-family $font1
+  text-transform uppercase
+
+.text-green
+  color $green2
+
+.text-blue
+  color $blue2
+
+.text-white
+  color white
+
+.text-grey
+  color #ababab
+
+.border-green
+  border solid 1px $green2
+
+.large-border-green
+  border solid 2px $green2
+
+.border-blue
+  border solid 1px  $blue2
+.large-border-blue
+  border solid 2px $blue2
+
+.border-white
+  border solid 1px white
+
+.bg-green
+  background-color $green2
+.bg-white
+  background-color white
+
+.bg-a-green
+  background-color alpha($green2, 25%)
+  &:hover
+    background-color alpha($green2, 60%)
+.bg-blue
+  background-color $blue2
+.bg-a-blue
+  background-color alpha($blue2, 25%)
+  &:hover
+    background-color alpha($blue2, 60%)
+.no-padding
+  no-padding()
+.whole-block
+  size 100
+.overlay
+  background-color alpha(black, 30%)
+  size 100
+  height 100%
+.hoverlay
+  background-color alpha(black, 30%)
+  position absolute
+  top 0
+  left 0
+  size 100
+  height 100%
+  transition all 250ms ease-in-out
+  opacity 0
+  &:hover, &:focus
+    opacity 1
+.slick-list
+  size 100

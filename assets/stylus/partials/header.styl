@@ -1,0 +1,181 @@
+#header
+  no-padding()
+  font-family $font1
+  z-index 999
+  position absolute
+  top 0
+  left 0
+
+  .mobile-header
+    height 10vh
+    float left
+    width 100vw
+    text-align center
+    background-color white
+    box-shadow 0px 0px 5px grey
+    transition all 250ms ease-in-out
+    img
+      max-width 100%
+      max-height 100%
+    .switch-header-mobile
+      position absolute
+      left 2vw
+      top 1vh
+      height 8vh
+      line-height 8vh
+      text-align center
+      background-color transparent
+      border solid 1px $green2
+      color $green2
+      no-padding()
+      font-size 6vh
+      width 8vh
+      border-radius 4px
+  .hidden
+    opacity 0
+  .header-first-line
+    size 100
+    no-padding()
+    font-size 12px
+    background-image url('assets/img/bg1.jpg')
+  .header-second-line
+    size 100
+    no-padding()
+    background-color white
+    .row
+      no-padding()
+      .header-logo
+        display block
+        position relative
+        img
+          max-width 100%
+          float left
+          max-height 100%
+      .header-address
+        display block
+        position relative
+        padding 20px 10px 20px 15px
+        font-size 14px
+        transition all 250ms ease-in-out
+        &:hover
+          &:before
+            opacity 1
+        &:before
+          content " "
+          position absolute
+          left 0
+          top 10px
+          height 60%
+          width 2px
+          background-color $green2
+          opacity 0
+          transition all 250ms ease-in-out
+        i
+          position absolute
+          left 5px
+          top 30px
+          font-size 20px
+      .header-contact
+        display block
+        position relative
+        padding 20px 10px 20px 15px
+        font-size 14px
+        &:hover
+          &:before
+            opacity 1
+        &:before
+          content " "
+          position absolute
+          left 0
+          top 10px
+          height 60%
+          width 2px
+          background-color $green2
+          opacity 0
+          transition all 250ms ease-in-out
+        i
+          position absolute
+          left 5px
+          top 30px
+          font-size 20px
+      .header-social
+        position relative
+        display block
+        padding-bottom 10px
+        max-height 250px
+        text-align center
+        a
+          padding 15px
+          display block
+          float left
+          text-align center
+  .shadow
+    z-index -100
+    display none
+    background-color alpha(black, 60%)
+    position fixed
+    top 0
+    left 0
+    height 100vh
+    width 100vw
+    float left
+    opacity 0
+    transition all 2000ms ease-in-out
+  .shown
+    z-index 998
+    opacity 1
+    display block
+  .header-menu
+    @media(max-width: 768px)
+      position absolute
+      left -101vw
+      top 0
+      position fixed
+      width 70vw
+      float left
+      z-index 999
+      height 100vh
+      box-shadow 0px 0px 10px black
+      .header-menu-line
+        height 10vh
+        background-color white
+        size 100
+        padding 1vh
+        line-height 8vh
+        img
+          max-width 100%
+          max-height 100%
+        .circle
+          &:hover, &:focus
+            background-color #ededed
+    display block
+    size 100
+    background-color $green2
+    height 50px
+    transition all 250ms ease-in-out
+    nav
+      size 100
+      no-padding()
+      ul
+        list-style none
+        no-padding()
+        li
+          display inline-block
+          text-transform uppercase
+          @media(max-width: 768px)
+            no-padding()
+          a
+            color white
+            line-height 50px
+            display block
+            size 100
+            text-align center
+            height 100%
+            @media(max-width: 768px)
+              text-align left
+              padding-left 30px
+  .actived
+    @media(max-width: 768px)
+      left 0
+  .fixed-header
+    position fixed

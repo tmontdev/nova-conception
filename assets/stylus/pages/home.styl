@@ -1,0 +1,130 @@
+.welcome
+  size 100
+  background-image url('assets/img/2.jpg')
+  height 100vh
+  background-size cover
+  background-position center center
+  @media(max-width: 768px)
+    background-image url('assets/img/teste.jpg')
+    height auto !important
+    min-height 100vh !important
+  @media(min-width: 2000px)
+    background-position right center
+  .row
+    margin 2% 0
+    .index
+      a
+        &:last-child
+          @media(max-width: 768px)
+              margin-top 2%
+.home-news
+  overflow-x hidden
+  padding 2% 0
+  size 100
+  .controllers
+    size 100
+    height 1px
+    position relative
+    .previous
+      position absolute
+      top 120px
+      left 0
+      height 110px
+      width 30px
+      background-color alpha(black, 10%)
+      transition all 250ms ease-in-out
+      line-height 110px
+      text-align center
+      z-index 800
+      &:hover
+        background-color alpha(black, 20%)
+        color $blue2
+    .next
+      position absolute
+      top 120px
+      right 0
+      height 110px
+      width 30px
+      background-color alpha(black, 10%)
+      transition all 250ms ease-in-out
+      line-height 110px
+      text-align center
+      z-index 800
+      &:hover
+        background-color alpha(black, 20%)
+        color $green1
+  .slide
+    .news-square
+      .post-field
+        padding 2% 0
+        @media(max-width: 768px)
+          padding 2%
+        .post-content
+          padding 2%
+          &:hover, &:focus
+            .text-excerpt
+              height 45%
+              opacity 1
+            .post-entry
+              size 35
+              opacity 1
+            .post-title
+              color $green2
+
+          .post-thumb
+            position relative
+            background-size cover
+            background-position center center
+            .post-when
+              .post-date
+                padding-top 8px
+                position relative
+                font-weight 700
+                &:before
+                  size 80
+                  position absolute
+                  background-color $green2
+                  height 5px
+                  top 0
+                  left 10%
+                  content " "
+                .post-day
+                  font-size 25px
+                  line-height 25px
+                .post-year
+                  font-size 14px
+          .text-excerpt
+            position absolute
+            size 100
+            bottom 0
+            left 0
+            height 0
+            padding 5%
+            background-color alpha(black, 40%)
+            color white
+            opacity 0
+            transition all 250ms  ease-in-out
+          .post-entry
+            position absolute
+            size 0
+            top 0
+            right 0
+            background-color $blue2
+            line-height 30px
+            font-size 20px
+            color white
+            opacity 0
+            transition all 250ms  ease-in-out
+        .post-title
+          color #797979
+          transition all 250ms  ease-in-out
+          padding-top 3%
+          position relative
+          &:before
+            size 100
+            height 2px
+            background-color #797979
+            position absolute
+            top 10%
+            left 0
+            content " "
