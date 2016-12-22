@@ -57,7 +57,7 @@
 									<i class="fa fa-facebook text-green" aria-hidden="true"></i>
 								</div>
 							</a>
-							<a class="col-xs-4"href="https://www.facebook.com/ConceptionEngenharia/?ref=ts&fref=ts">
+							<a class="col-xs-4"href="https://www.youtube.com/channel/UCZeUv9_Gf-5xEmAfe0QhJuA">
 								<div class="circle text-center text-green border-green">
 									<i class="fa fa-youtube text-green" aria-hidden="true"></i>
 								</div>
@@ -87,7 +87,7 @@
 							<ul>
 								<li class="text-center col-xs-12 col-md-2 no-padding"><a class="no-padding" href="<?php echo get_option('home'); ?>"><div class="link-icon col-xs-2 mobile no-padding text-center"><i class="fa fa-home" aria-hidden="true"></i></div><span class="col-xs-10 col-md-12"><i class="fa fa-home desktop" aria-hidden="true"></i> Home</span>	</a></li>
 								<li class="text-center col-xs-12 col-md-2 no-padding"><a class="no-padding" href="<?php echo get_permalink(get_page_by_path('sobre')); ?>"><div class="link-icon col-xs-2 mobile no-padding text-center"><i class="fa fa-question-circle-o" aria-hidden="true"></i></div><span class="col-xs-10 col-md-12"><i class="fa fa-question-circle-o desktop" aria-hidden="true"></i> Sobre</span>	</a></li></a></li>
-								<li class="text-center col-xs-12 col-md-2 no-padding"><a class="no-padding" href="<?php echo get_permalink(get_page_by_path('serviços')); ?>"><div class="link-icon col-xs-2 mobile no-padding text-center"><i class="fa fa-cog" aria-hidden="true"></i></div><span class="col-xs-10 col-md-12"><i class="fa fa-cog desktop" aria-hidden="true"></i> Serviços</span>	</a></li></a></li>
+								<li class="text-center col-xs-12 col-md-2 no-padding"><a class="no-padding" href="<?php echo get_permalink(get_page_by_path('servicos')); ?>"><div class="link-icon col-xs-2 mobile no-padding text-center"><i class="fa fa-cog" aria-hidden="true"></i></div><span class="col-xs-10 col-md-12"><i class="fa fa-cog desktop" aria-hidden="true"></i> Serviços</span>	</a></li></a></li>
 								<li class="text-center col-xs-12 col-md-2 no-padding"><a class="no-padding" href="<?php echo get_permalink(get_page_by_path('downloads')); ?>"><div class="link-icon col-xs-2 mobile no-padding text-center"><i class="fa fa-download" aria-hidden="true"></i></div><span class="col-xs-10 col-md-12"><i class="fa fa-download desktop" aria-hidden="true"></i> Downloads</span>	</a></li></a></li>
 								<li class="text-center col-xs-12 col-md-2 no-padding"><a class="no-padding" href="<?php echo get_permalink(get_page_by_path('news')); ?>"><div class="link-icon col-xs-2 mobile no-padding text-center"><i class="fa fa-newspaper-o" aria-hidden="true"></i></div><span class="col-xs-10 col-md-12"><i class="fa fa-newspaper-o desktop" aria-hidden="true"></i> Notícias</span>	</a></li></a></li>
 								<li class="text-center col-xs-12 col-md-2 no-padding"><a class="no-padding" href="<?php echo get_permalink(get_page_by_path('contato')); ?>"><div class="link-icon col-xs-2 mobile no-padding text-center"><i class="fa fa-phone" aria-hidden="true"></i></div><span class="col-xs-10 col-md-12"><i class="fa fa-phone desktop" aria-hidden="true"></i> Contato</span>	</a></li></a></li>
@@ -98,7 +98,7 @@
 								<i class="fa fa-facebook text-white" aria-hidden="true"></i>
 							</div>
 						</a>
-						<a class="mobile col-xs-4"href="https://www.facebook.com/ConceptionEngenharia/?ref=ts&fref=ts">
+						<a class="mobile col-xs-4"href="https://www.youtube.com/channel/UCZeUv9_Gf-5xEmAfe0QhJuA">
 							<div class="circle text-center text-white border-white">
 								<i class="fa fa-youtube text-white" aria-hidden="true"></i>
 							</div>

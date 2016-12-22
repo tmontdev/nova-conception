@@ -88,7 +88,7 @@ body {
   color: #fff;
 }
 .text-grey {
-  color: #ababab;
+  color: #797979;
 }
 .border-green {
   border: solid 1px #0c854d;
@@ -165,6 +165,57 @@ body {
 }
 .link-icon {
   font-size: 22px;
+}
+.page-reference {
+  width: 100%;
+  float: left;
+  box-shadow: 0px 0px 10px #000;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.page-reference .pr-bg {
+  width: 100%;
+  float: left;
+  padding: 0 !important;
+  margin: 0 !important;
+  height: 40vh;
+  background-size: cover;
+  background-position: center center;
+}
+@media (max-width: 768px) {
+  .page-reference .pr-bg {
+    height: 20vh;
+  }
+}
+.page-reference .pr-line {
+  width: 100%;
+  float: left;
+  height: 40px;
+  background-color: #ededed;
+  font-family: 'Ubuntu';
+}
+.page-reference .pr-line a:hover,
+.page-reference .pr-line a:focus {
+  color: blue2;
+  text-decoration: none;
+}
+.page-reference .pr-line .home-icon {
+  font-size: 25px;
+  line-height: 40px;
+}
+@media (max-width: 768px) {
+  .page-reference .pr-line .home-icon {
+    font-size: 20px;
+  }
+}
+.page-reference .pr-line .pr-page,
+.page-reference .pr-line .pr-post {
+  line-height: 40px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.page-reference .pr-line .pr-post {
+  text-transform: none;
 }
 #header {
   padding: 0 !important;
