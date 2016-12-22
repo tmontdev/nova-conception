@@ -85,12 +85,12 @@
 					<div class="row">
 						<nav>
 							<ul>
-								<li class="text-center col-xs-12 col-md-2"><a href="<?php echo get_option('home'); ?>">Home</a></li>
-								<li class="text-center col-xs-12 col-md-2"><a href="<?php echo get_permalink(get_page_by_path('sobre')); ?>">Sobre</a></li>
-								<li class="text-center col-xs-12 col-md-2"><a href="<?php echo get_permalink(get_page_by_path('serviços')); ?>">Serviços</a></li>
-								<li class="text-center col-xs-12 col-md-2"><a href="<?php echo get_permalink(get_page_by_path('downloads')); ?>">Downloads</a></li>
-								<li class="text-center col-xs-12 col-md-2"><a href="<?php echo get_permalink(get_page_by_path('news')); ?>">Notícias</a></li>
-								<li class="text-center col-xs-12 col-md-2"><a href="<?php echo get_permalink(get_page_by_path('contato')); ?>">Contato</a></li>
+								<li class="text-center col-xs-12 col-md-2 no-padding"><a class="no-padding" href="<?php echo get_option('home'); ?>"><div class="link-icon col-xs-2 mobile no-padding text-center"><i class="fa fa-home" aria-hidden="true"></i></div><span class="col-xs-10 col-md-12"><i class="fa fa-home desktop" aria-hidden="true"></i> Home</span>	</a></li>
+								<li class="text-center col-xs-12 col-md-2 no-padding"><a class="no-padding" href="<?php echo get_permalink(get_page_by_path('sobre')); ?>"><div class="link-icon col-xs-2 mobile no-padding text-center"><i class="fa fa-question-circle-o" aria-hidden="true"></i></div><span class="col-xs-10 col-md-12"><i class="fa fa-question-circle-o desktop" aria-hidden="true"></i> Sobre</span>	</a></li></a></li>
+								<li class="text-center col-xs-12 col-md-2 no-padding"><a class="no-padding" href="<?php echo get_permalink(get_page_by_path('serviços')); ?>"><div class="link-icon col-xs-2 mobile no-padding text-center"><i class="fa fa-cog" aria-hidden="true"></i></div><span class="col-xs-10 col-md-12"><i class="fa fa-cog desktop" aria-hidden="true"></i> Serviços</span>	</a></li></a></li>
+								<li class="text-center col-xs-12 col-md-2 no-padding"><a class="no-padding" href="<?php echo get_permalink(get_page_by_path('downloads')); ?>"><div class="link-icon col-xs-2 mobile no-padding text-center"><i class="fa fa-download" aria-hidden="true"></i></div><span class="col-xs-10 col-md-12"><i class="fa fa-download desktop" aria-hidden="true"></i> Downloads</span>	</a></li></a></li>
+								<li class="text-center col-xs-12 col-md-2 no-padding"><a class="no-padding" href="<?php echo get_permalink(get_page_by_path('news')); ?>"><div class="link-icon col-xs-2 mobile no-padding text-center"><i class="fa fa-newspaper-o" aria-hidden="true"></i></div><span class="col-xs-10 col-md-12"><i class="fa fa-newspaper-o desktop" aria-hidden="true"></i> Notícias</span>	</a></li></a></li>
+								<li class="text-center col-xs-12 col-md-2 no-padding"><a class="no-padding" href="<?php echo get_permalink(get_page_by_path('contato')); ?>"><div class="link-icon col-xs-2 mobile no-padding text-center"><i class="fa fa-phone" aria-hidden="true"></i></div><span class="col-xs-10 col-md-12"><i class="fa fa-phone desktop" aria-hidden="true"></i> Contato</span>	</a></li></a></li>
 							</ul>
 						</nav>
 						<a class="mobile col-xs-4"href="https://www.facebook.com/ConceptionEngenharia/?ref=ts&fref=ts">

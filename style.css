@@ -163,6 +163,9 @@ body {
   width: 100vw;
   float: left;
 }
+.link-icon {
+  font-size: 22px;
+}
 #header {
   padding: 0 !important;
   margin: 0 !important;
@@ -465,6 +468,7 @@ body {
   position: relative;
 }
 .home-news .controllers .previous {
+  cursor: pointer;
   position: absolute;
   top: 120px;
   left: 0;
@@ -485,6 +489,7 @@ body {
   color: #3d7fa9;
 }
 .home-news .controllers .next {
+  cursor: pointer;
   position: absolute;
   top: 120px;
   right: 0;
