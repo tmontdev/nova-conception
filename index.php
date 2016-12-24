@@ -56,318 +56,67 @@
   </div>
 </section>
 <section class="home-news">
-  <div class="desktop controllers">
-    <div class="previous">
-      <i class="fa fa-arrow-left" aria-hidden="true"></i>
-    </div>
-    <div class="next">
-      <i class="fa fa-arrow-right" aria-hidden="true"></i>
-    </div>
-  </div>
   <div class="home-slider">
+    <?php
+    $posts = array();
+    $args = array(
+    	'category_name' => 'Home',
+    	'posts_per_page' => 3
+    );
+    $query = new WP_Query( $args );
+    while($query->have_posts()) {
+    	$query->the_post();
+    	$posts[] = array(
+    		'title' => get_the_title(),
+    		'description' => get_the_excerpt(),
+    		'day' => get_the_date('d'),
+        'month' => get_the_date('m'),
+        'year' => get_the_date('Y'),
+        'link' => get_permalink(),
+        'thumb' => get_the_post_thumbnail_url(),
+    	);
+    }
+    ?>
     <div class="home-news-security slide">
       <div class="container">
         <div class="slide-presentation text-center ">
-          <h4 class="text-subtitle">Notícias | <span class="text-title text-green">Segurança no Trabalho</span></h4>
+          <h4 class="text-subtitle"><span class="text-title text-green">Ultimas Notícias</span></h4>
         </div>
         <div class="news-square whole-block">
           <div class="row">
+              <?php foreach ($posts as $post): ?>
             <div class="post-field col-xs-12 col-md-4">
-              <a href="https://www.facebook.com/themont.thales" target="_blank">
+              <a href="<?php echo $post['link']; ?>" target="_blank">
                 <div class="post-content bg-white col-xs-12">
-                  <div class="post-thumb whole-block" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/05.jpg'); height: 200px;">
+                  <div class="post-thumb whole-block" style="background-image: url('<?php echo $post['thumb']; ?>'); height: 200px;">
                     <div class="post-when col-xs-4 col-md-3">
                       <div class="post-date text-center bg-white whole-block">
                         <div class="whole-block post-day text-center text-green">
-                          20
+                          <?php echo $post['day']; ?>
                         </div>
                         <div class=" whole-block post-month text-center text-blue">
-                          DEZ
+                          <?php echo $post['month']; ?>
                         </div>
                         <div class="whole-block post-year text-grey text-center">
-                          2016
+                          <?php echo $post['year']; ?>
                         </div>
                       </div>
                     </div>
                     <div class="text-excerpt">
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                      <?php echo $post['description']; ?>
                     </div>
                     <div class="post-entry text-center">
                       Entrar
                     </div>
                   </div>
                   <div class="post-title  whole-block">
-                    <h6 class="text-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h6>
+                    <h6 class="text-title"><?php echo $post['title']; ?></h6>
                   </div>
                 </div>
               </a>
             </div>
-            <div class="post-field col-xs-12 col-md-4">
-              <a href="https://www.facebook.com/themont.thales" target="_blank">
-                <div class="post-content bg-white col-xs-12">
-                  <div class="post-thumb whole-block" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/03.jpg'); height: 200px;">
-                    <div class="post-when col-xs-4 col-md-3">
-                      <div class="post-date text-center bg-white whole-block">
-                        <div class="whole-block post-day text-center text-green">
-                          20
-                        </div>
-                        <div class=" whole-block post-month text-center text-blue">
-                          DEZ
-                        </div>
-                        <div class="whole-block post-year text-grey text-center">
-                          2016
-                        </div>
-                      </div>
-                    </div>
-                    <div class="text-excerpt">
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    </div>
-                    <div class="post-entry text-center">
-                      Entrar
-                    </div>
-                  </div>
-                  <div class="post-title  whole-block">
-                    <h6 class="text-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h6>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div class="post-field col-xs-12 col-md-4">
-              <a href="https://www.facebook.com/themont.thales" target="_blank">
-                <div class="post-content bg-white col-xs-12">
-                  <div class="post-thumb whole-block" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/02.jpg'); height: 200px;">
-                    <div class="post-when col-xs-4 col-md-3">
-                      <div class="post-date text-center bg-white whole-block">
-                        <div class="whole-block post-day text-center text-green">
-                          20
-                        </div>
-                        <div class=" whole-block post-month text-center text-blue">
-                          DEZ
-                        </div>
-                        <div class="whole-block post-year text-grey text-center">
-                          2016
-                        </div>
-                      </div>
-                    </div>
-                    <div class="text-excerpt">
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    </div>
-                    <div class="post-entry text-center">
-                      Entrar
-                    </div>
-                  </div>
-                  <div class="post-title  whole-block">
-                    <h6 class="text-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h6>
-                  </div>
-                </div>
-              </a>
-            </div>
-
-          </div>
+          <?php endforeach;  wp_reset_query();?>
         </div>
-      </div>
-    </div>
-    <div class="home-news-security slide">
-      <div class="container">
-        <div class="slide-presentation text-center ">
-          <h4 class="text-subtitle">Notícias | <span class="text-title text-green">Segurança no Trabalho</span></h4>
-        </div>
-        <div class="news-square whole-block">
-          <div class="row">
-            <div class="post-field col-xs-12 col-md-4">
-              <a href="https://www.facebook.com/themont.thales" target="_blank">
-                <div class="post-content bg-white col-xs-12">
-                  <div class="post-thumb whole-block" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/05.jpg'); height: 200px;">
-                    <div class="post-when col-xs-4 col-md-3">
-                      <div class="post-date text-center bg-white whole-block">
-                        <div class="whole-block post-day text-center text-green">
-                          20
-                        </div>
-                        <div class=" whole-block post-month text-center text-blue">
-                          DEZ
-                        </div>
-                        <div class="whole-block post-year text-grey text-center">
-                          2016
-                        </div>
-                      </div>
-                    </div>
-                    <div class="text-excerpt">
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    </div>
-                    <div class="post-entry text-center">
-                      Entrar
-                    </div>
-                  </div>
-                  <div class="post-title  whole-block">
-                    <h6 class="text-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h6>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div class="post-field col-xs-12 col-md-4">
-              <a href="https://www.facebook.com/themont.thales" target="_blank">
-                <div class="post-content bg-white col-xs-12">
-                  <div class="post-thumb whole-block" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/03.jpg'); height: 200px;">
-                    <div class="post-when col-xs-4 col-md-3">
-                      <div class="post-date text-center bg-white whole-block">
-                        <div class="whole-block post-day text-center text-green">
-                          20
-                        </div>
-                        <div class=" whole-block post-month text-center text-blue">
-                          DEZ
-                        </div>
-                        <div class="whole-block post-year text-grey text-center">
-                          2016
-                        </div>
-                      </div>
-                    </div>
-                    <div class="text-excerpt">
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    </div>
-                    <div class="post-entry text-center">
-                      Entrar
-                    </div>
-                  </div>
-                  <div class="post-title  whole-block">
-                    <h6 class="text-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h6>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div class="post-field col-xs-12 col-md-4">
-              <a href="https://www.facebook.com/themont.thales" target="_blank">
-                <div class="post-content bg-white col-xs-12">
-                  <div class="post-thumb whole-block" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/02.jpg'); height: 200px;">
-                    <div class="post-when col-xs-4 col-md-3">
-                      <div class="post-date text-center bg-white whole-block">
-                        <div class="whole-block post-day text-center text-green">
-                          20
-                        </div>
-                        <div class=" whole-block post-month text-center text-blue">
-                          DEZ
-                        </div>
-                        <div class="whole-block post-year text-grey text-center">
-                          2016
-                        </div>
-                      </div>
-                    </div>
-                    <div class="text-excerpt">
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    </div>
-                    <div class="post-entry text-center">
-                      Entrar
-                    </div>
-                  </div>
-                  <div class="post-title  whole-block">
-                    <h6 class="text-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h6>
-                  </div>
-                </div>
-              </a>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="home-news-security slide">
-      <div class="container">
-        <div class="slide-presentation text-center ">
-          <h4 class="text-subtitle">Notícias | <span class="text-title text-green">Segurança no Trabalho</span></h4>
-        </div>
-        <div class="news-square whole-block">
-          <div class="row">
-            <div class="post-field col-xs-12 col-md-4">
-              <a href="https://www.facebook.com/themont.thales" target="_blank">
-                <div class="post-content bg-white col-xs-12">
-                  <div class="post-thumb whole-block" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/05.jpg'); height: 200px;">
-                    <div class="post-when col-xs-4 col-md-3">
-                      <div class="post-date text-center bg-white whole-block">
-                        <div class="whole-block post-day text-center text-green">
-                          20
-                        </div>
-                        <div class=" whole-block post-month text-center text-blue">
-                          DEZ
-                        </div>
-                        <div class="whole-block post-year text-grey text-center">
-                          2016
-                        </div>
-                      </div>
-                    </div>
-                    <div class="text-excerpt">
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    </div>
-                    <div class="post-entry text-center">
-                      Entrar
-                    </div>
-                  </div>
-                  <div class="post-title  whole-block">
-                    <h6 class="text-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h6>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div class="post-field col-xs-12 col-md-4">
-              <a href="https://www.facebook.com/themont.thales" target="_blank">
-                <div class="post-content bg-white col-xs-12">
-                  <div class="post-thumb whole-block" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/03.jpg'); height: 200px;">
-                    <div class="post-when col-xs-4 col-md-3">
-                      <div class="post-date text-center bg-white whole-block">
-                        <div class="whole-block post-day text-center text-green">
-                          20
-                        </div>
-                        <div class=" whole-block post-month text-center text-blue">
-                          DEZ
-                        </div>
-                        <div class="whole-block post-year text-grey text-center">
-                          2016
-                        </div>
-                      </div>
-                    </div>
-                    <div class="text-excerpt">
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    </div>
-                    <div class="post-entry text-center">
-                      Entrar
-                    </div>
-                  </div>
-                  <div class="post-title  whole-block">
-                    <h6 class="text-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h6>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div class="post-field col-xs-12 col-md-4">
-              <a href="https://www.facebook.com/themont.thales" target="_blank">
-                <div class="post-content bg-white col-xs-12">
-                  <div class="post-thumb whole-block" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/02.jpg'); height: 200px;">
-                    <div class="post-when col-xs-4 col-md-3">
-                      <div class="post-date text-center bg-white whole-block">
-                        <div class="whole-block post-day text-center text-green">
-                          20
-                        </div>
-                        <div class=" whole-block post-month text-center text-blue">
-                          DEZ
-                        </div>
-                        <div class="whole-block post-year text-grey text-center">
-                          2016
-                        </div>
-                      </div>
-                    </div>
-                    <div class="text-excerpt">
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    </div>
-                    <div class="post-entry text-center">
-                      Entrar
-                    </div>
-                  </div>
-                  <div class="post-title  whole-block">
-                    <h6 class="text-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h6>
-                  </div>
-                </div>
-              </a>
-            </div>
-
-          </div>
         </div>
       </div>
     </div>
