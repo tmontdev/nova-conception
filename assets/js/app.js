@@ -37,7 +37,7 @@
               $('.header-menu').removeClass("fixed-header");
       }
 
-});
+    });
   }
 })(jQuery);
 (function($){//about page code
