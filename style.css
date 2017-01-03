@@ -631,6 +631,85 @@ body left 0 {
 .about .logo-square .logo-img .lower {
   max-height: 100px;
 }
+.contact .contact-presentation {
+  margin: 2% 0;
+  border-bottom: solid 1px #3d7fa9;
+}
+.contact .write-for-us .contact-form .form-row {
+  display: block;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+@media (min-width: 768px) {
+  .contact .write-for-us .contact-form .form-row {
+    margin: 2% 0;
+  }
+}
+.contact .write-for-us .contact-form .form-row p {
+  display: none;
+}
+.contact .write-for-us .contact-form .form-row input,
+.contact .write-for-us .contact-form .form-row textarea {
+  border: solid 1px #000;
+  -webkit-transition: all 250ms ease-in-out;
+  transition: all 250ms ease-in-out;
+  -moz-transition: all 250ms ease-in-out;
+  -o-transition: all 250ms ease-in-out;
+  -ms-transition: all 250ms ease-in-out;
+  padding: 5px 15px;
+  font-size: 14px;
+  max-height: 100px;
+  display: block;
+  font-family: 'Ubuntu';
+}
+@media (max-width: 768px) {
+  .contact .write-for-us .contact-form .form-row input,
+  .contact .write-for-us .contact-form .form-row textarea {
+    margin: 2% 0;
+    width: 100%;
+    float: left;
+  }
+}
+.contact .write-for-us .contact-form .form-row input:hover,
+.contact .write-for-us .contact-form .form-row textarea:hover,
+.contact .write-for-us .contact-form .form-row input:focus,
+.contact .write-for-us .contact-form .form-row textarea:focus {
+  border: solid 1px #3d7fa9;
+}
+.contact .write-for-us .contact-form .send-button {
+  text-align: center;
+  padding: 0;
+}
+.contact .write-for-us .contact-form .send-button .send {
+  background: none;
+  padding: 6px 10px;
+  font-weight: 700;
+  border: solid 2px #3d7fa9;
+  color: #3d7fa9;
+  -webkit-transition: all 250ms ease-in-out;
+  transition: all 250ms ease-in-out;
+  -moz-transition: all 250ms ease-in-out;
+  -o-transition: all 250ms ease-in-out;
+  -ms-transition: all 250ms ease-in-out;
+  font-family: 'Ubuntu';
+}
+.contact .write-for-us .contact-form .send-button .send:hover,
+.contact .write-for-us .contact-form .send-button .send:focus {
+  background-color: #0c854d;
+  box-shadow: 0px 0px 5px #0c854d;
+  border: solid 2px #0c854d;
+  color: #fff;
+}
+@media (min-width: 768px) {
+  .contact .write-for-us .contact-form .send-button .send {
+    width: 60%;
+    float: left;
+    margin: 0 20%;
+    display: block;
+  }
+}
 .welcome {
   width: 100%;
   float: left;
