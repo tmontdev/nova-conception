@@ -197,6 +197,7 @@ body left 0 {
   box-shadow: 0px 0px 10px #000;
   padding: 0 !important;
   margin: 0 !important;
+  position: relative;
 }
 .page-reference .pr-bg {
   width: 100%;
@@ -957,7 +958,7 @@ body left 0 {
   border: solid 1px #ababab;
   border-radius: 40px;
 }
-.services .services-menu .services-menu-content .menu-item {
+.services .services-menu .services-menu-content .menu-button {
   height: 100%;
   cursor: pointer;
   width: 25%;
@@ -970,31 +971,32 @@ body left 0 {
   -o-transition: all 250ms ease-in-out;
   -ms-transition: all 250ms ease-in-out;
 }
-.services .services-menu .services-menu-content .menu-item:not(.actived) {
+.services .services-menu .services-menu-content .menu-button:not(.actived) {
   border: none;
   opacity: 0.65;
   background-color: transparent;
 }
-.services .services-menu .services-menu-content .menu-item:not(.actived):hover {
+.services .services-menu .services-menu-content .menu-button:not(.actived):hover {
   opacity: 1;
 }
-.services .services-menu .services-menu-content .menu-item span {
+.services .services-menu .services-menu-content .menu-button span {
   font-family: 'Ubuntu';
   font-size: 17px;
 }
-.services .services-menu .services-menu-content .menu-item i {
+.services .services-menu .services-menu-content .menu-button i {
   font-size: 22px;
 }
 @media (max-width: 768px) {
-  .services .services-menu .services-menu-content .menu-item i {
+  .services .services-menu .services-menu-content .menu-button i {
     font-size: 30px;
     line-height: 60px;
   }
 }
 .services .service-item {
-  min-height: 100vh;
   width: 100%;
   float: left;
-  display: block;
   padding-top: 80px;
+  position: absolute;
+  background-color: #fff;
+  display: table;
 }
