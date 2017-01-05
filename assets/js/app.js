@@ -68,8 +68,17 @@
   //SCDROLL FIXO / ABSOLUTO
 	var anti_bug = 80; //padding do
 	var prh = $('.page-reference').height(); //altura do cabeçalho
+  var mt = 0;
+  if ($(window).width()>768) {
+    mt= $('.header-menu').height();
 
-	var consultingH=  $('#consulting').height() + 100;
+  } else {
+    mt = $('.mobile-header').height();
+  }
+
+var obvious = 100 + mt;
+
+	var consultingH=  $('#consulting').height() + obvious;
 	var fireH =  $('#fire').height() + anti_bug;
 	var securityH =  $('#security').height() + anti_bug;
 	var boltH =  $('#bolt').height() + anti_bug;
@@ -139,38 +148,45 @@
 
 	// funcoes durante o scroll
 	$(window).scroll(function(e){
+    if ($(this).scrollTop() > prh - mt) {
+      $('.services-menu').css('position', 'fixed').css('top', 15 + mt);
+    }
+    else{
+      $('.services-menu').css('position', 'absolute').css('top', 15);
+    }
 
 
 		var pos = $(window).scrollTop();
-		posConsulting = ( pos - consultingH) + prh + window_h;
-		posFire = ( pos - consultingH) + prh + window_h;
-		posSecurity = ( pos - fireH) + prh + window_h;
-		posBolt = ( pos - securityH) + prh + window_h;
+		posConsulting = ( pos - consultingH) + mt + window_h;
+		posFire = ( pos - consultingH) + mt + window_h;
+		posSecurity = ( pos - fireH) + mt + window_h;
+		posBolt = ( pos - securityH) + mt + window_h;
 
 		if(navigator.appVersion.indexOf("MSIE")==-1) { //se nao for ie
 
 			//altera o display da section de absolute para fixed, dependendo da posicao e do tamanho da section
-			if (posFire >= atualConsulting ) { $('#consulting').css({'position': 'fixed', 'top' : -osConsulting_}); }
-			else { $('#consulting').css({'position': 'absolute', 'top' : initialConsulting}); }
+			if (posFire >= atualConsulting ) { $('#consulting').css({'position': 'fixed', 'top' : -osConsulting + mt}); }
+			else { $('#consulting').css({'position': 'absolute', 'top' : initialConsulting }); }
 
 			if (posSecurity >= atualFire ) { $('#fire').css({'position': 'fixed', 'top' : -osFire_}); }
-			else { $('#fire').css({'position': 'absolute', 'top' : initialFire});  }
+			else { $('#fire').css({'position': 'absolute', 'top' : initialFire - mt});  }
 
 			if (posBolt >= atualSecurity ) $('#security').css({'position': 'fixed', 'top' : -osSecurity_});
-			else $('#security').css({'position': 'absolute', 'top' : initialSecurity});
+			else $('#security').css({'position': 'absolute', 'top' : initialSecurity - mt});
 		}
 
 		//muda a img do link no menu
-		if ( ( pos >= tops[0] ) && ( pos < tops[1] ) ) { $('#consulting-button').addClass("actived");}
+    var middleheight = $(window).height()/2;
+		if ( pos < tops[1]) { $('#consulting-button').addClass("actived");}
 		else { $('#consulting-button').removeClass("actived"); }
 
-		if ( ( pos >= tops[1] ) && ( pos < tops[2] ) ) { $('#fire-button').addClass("actived"); }
+		if ( ( pos >= tops[1]-middleheight ) && ( pos < tops[2] ) ) { $('#fire-button').addClass("actived"); }
 		else { $('#fire-button').removeClass("actived");  }
 
-		if ( ( pos >= tops[2] ) && ( pos < tops[3] ) ) { $('#security-button').addClass("actived"); }
+		if ( ( pos >= tops[2]-middleheight ) && ( pos < tops[3] ) ) { $('#security-button').addClass("actived"); }
 		else { $('#security-button').removeClass("actived"); }
 
-		if ( ( pos >= tops[3] ) && ( pos < tops[4] ) ) { $('#bolt-button').addClass("actived"); }
+		if ( ( pos >= tops[3]-middleheight ) && ( pos < tops[4] ) ) { $('#bolt-button').addClass("actived"); }
 		else { $('#bolt-button').removeClass("actived"); }
 	});
 
@@ -178,19 +194,55 @@
 
 	//scroll to dos links
 	//define onde é o top de cada um dos elementos
-	var tops = new Array();
-	tops[0] = prh + 0; //home
-	tops[1] = prh + initialFire;
-	tops[2] = prh + initialSecurity;
-	tops[3] = prh + initialBolt;
-
-	$('.menu-button').click(function(event) {
-		$('.menu-button').each(function(index, el) {
-			$(this).removeClass('actived');
-		});
-		$(this).addClass('actived');
-		var target = $(this).attr('data-target');
-
+  /*
+  $('#consulting-button').click(function(event) {
+		$('html, body').animate({
+          scrollTop: initialConsulting
+        }, 1000);
 	});
+	$('#fire-button').click(function(event) {
+		$('html, body').animate({
+          scrollTop: initialFire
+        }, 1000);
+	});
+	$('#security-button').click(function(event) {
+		$('html, body').animate({
+          scrollTop: initialSecurity
+        }, 1000);
+	});
+	$('#bolt-button').click(function(event) {
+		$('html, body').animate({
+          scrollTop: osBolt_
+        }, 1000);
+	});
+*/
+$('.menu-button').click(function(event) {
+  var pos = $(window).scrollTop(); //posição atual
+  var target = $(this).attr('data-target');
+  var distance = 0;
+  posConsulting = ( pos - consultingH) +mt ;
+  posFire = ( pos - consultingH) + mt;
+  posSecurity = ( pos - fireH) + mt ;
+  posBolt = ( pos - securityH) + mt;
+  if($(this).hasClass('consulting-button')){
+    distance = initialConsulting +prh -mt;
+  }
+  if($(this).hasClass('fire-button')){
+    distance = initialFire +prh -mt -mt;
+  }
+  if($(this).hasClass('security-button')){
+    distance = initialSecurity +prh -mt -mt;
+  }
+  if($(this).hasClass('bolt-button')){
+    distance =initialBolt +prh -mt;
+  }
 
+
+
+
+  $('html, body').animate({
+        scrollTop: distance
+      }, 1000);
+
+});
 })(jQuery);
