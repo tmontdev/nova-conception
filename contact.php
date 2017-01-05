@@ -29,10 +29,15 @@ get_header();
         </div>
       </div>
       <div class="col-xs-12 col-md-4 center-side">
-        <h4 class="text-blue text-subtitle no-padding">Informações</h4>
+        <h4 class="text-blue text-subtitle">Informações</h4>
         <div class="col-field whole-block">
           <div class="line-query whole-block">
-            <h5 class="text-blue text-subtitle no-padding"> <i class="fa fa-clock-o text-blue" aria-hidden="true"></i>Horário de Funcionamento</h5>
+            <h5 class="text-blue text-subtitle no-padding"> <i class="fa fa-map-o text-blue" aria-hidden="true"></i> Endereço</h5>
+            <span class="text-grey whole-block">Rua Voluntários da Pátria, nº2-55</span>
+            <span class="text-grey whole-block">Higienópolis, Bauru/São Paulo</span>
+          </div>
+          <div class="line-query whole-block">
+            <h5 class="text-blue text-subtitle no-padding"> <i class="fa fa-clock-o text-blue" aria-hidden="true"></i> Horário de Funcionamento</h5>
             <span class="text-grey whole-block">Segunda à Sexta, 08:00 às 20:00</span>
             <span class="text-grey whole-block">Sábados, 10:00 às 14:00</span>
           </div>
@@ -59,18 +64,18 @@ get_header();
             </div>
             <div class="line-query whole-block">
               <a target="_blank" href="https://www.facebook.com/ConceptionEngenharia/">
-                <div class="col-xs-4 circle ct-fb">
-                  <i class="fa fa-facebook" aria-hidden="true"></i>
+                <div class="col-xs-4 ct-fb">
+                  <i class="circle fa fa-facebook" aria-hidden="true"></i>
                 </div>
               </a>
               <a target="_blank" href="https://www.youtube.com/channel/UCZeUv9_Gf-5xEmAfe0QhJuA">
-                <div class="col-xs-4 circle ct-yt">
-                  <i class="fa fa-youtube" aria-hidden="true"></i>
+                <div class="col-xs-4 ct-yt">
+                  <i class="circle fa fa-youtube" aria-hidden="true"></i>
                 </div>
               </a>
               <a target="_blank" href="https://www.youtube.com">
-                <div class="col-xs-4 circle ct-li">
-                  <i class="fa fa-linkedin" aria-hidden="true"></i>
+                <div class="col-xs-4 ct-li">
+                  <i class="circle fa fa-linkedin" aria-hidden="true"></i>
                 </div>
               </a>
             </div>

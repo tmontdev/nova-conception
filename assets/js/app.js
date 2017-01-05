@@ -62,3 +62,8 @@
     });
 
 })(jQuery);
+
+(function($){//services page code
+  var osFixed = $('.page-reference').height();
+  alert(osFixed);
+})(jQuery);

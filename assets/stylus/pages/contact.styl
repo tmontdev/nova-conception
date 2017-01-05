@@ -48,3 +48,29 @@
             size 60
             margin 0 20%
             display block
+  .avaliable
+    margin 2% 0
+    h4
+      padding-bottom 20px
+      display block
+      position relative
+      &:after
+        content""
+        size 100
+        position absolute
+        top 30px
+        left 0
+        height 1px
+        background-color black
+    .col-field
+      .line-query
+        margin 2% 0
+        a
+          .circle
+            border solid 1px $blue2
+            transition all 250ms ease-in-out
+          &:hover
+            .circle
+              background-color $blue2
+              box-shadow 0px 0px 05 $blue2
+              color white
