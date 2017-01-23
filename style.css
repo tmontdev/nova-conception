@@ -1003,3 +1003,25 @@ body left 0 {
   background-color: #fff;
   display: table;
 }
+.services .service-item .service-item-title {
+  width: 100%;
+  float: left;
+  padding: 15px;
+}
+.services .service-item .each-service {
+  padding: 15px;
+  -webkit-transition: all 250ms ease-in-out;
+  transition: all 250ms ease-in-out;
+  -moz-transition: all 250ms ease-in-out;
+  -o-transition: all 250ms ease-in-out;
+  -ms-transition: all 250ms ease-in-out;
+}
+@media (max-width: 768px) {
+  .services .service-item .each-service {
+    padding: 15px 0;
+  }
+}
+.services .service-item .each-service .service-post {
+  background-color: #fafafa;
+  padding: 10px;
+}
