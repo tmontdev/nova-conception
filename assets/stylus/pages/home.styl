@@ -1,7 +1,7 @@
 .welcome
   size 100
   background-image url('assets/img/2.jpg')
-  height 100vh
+  min-height 100vh !important
   background-size cover
   background-position center center
   @media(max-width: 768px)
@@ -10,6 +10,8 @@
     min-height 100vh !important
   @media(min-width: 2000px)
     background-position right center
+  .overlay
+    min-height 100vh !important
   .row
     margin 2% 0
     .index

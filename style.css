@@ -155,7 +155,7 @@ body left 0 {
   background-color: rgba(0,0,0,0.3);
   width: 100%;
   float: left;
-  height: 100%;
+  height: 100% !important;
 }
 .hoverlay {
   background-color: rgba(0,0,0,0.3);
@@ -749,7 +749,7 @@ body left 0 {
   width: 100%;
   float: left;
   background-image: url("assets/img/2.jpg");
-  height: 100vh;
+  min-height: 100vh !important;
   background-size: cover;
   background-position: center center;
 }
@@ -764,6 +764,9 @@ body left 0 {
   .welcome {
     background-position: right center;
   }
+}
+.welcome .overlay {
+  min-height: 100vh !important;
 }
 .welcome .row {
   margin: 2% 0;
