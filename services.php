@@ -25,82 +25,38 @@ get_header();
     </div>
   </div>
   <div class="service-item hb-green consulting" id="consulting">
+    <?php
+    $posts = array();
+    $args = array(
+      'post_type' => 'ConsultingServices'
+  );
+    $query = new WP_Query( $args );
+    while($query->have_posts()) {
+      $query->the_post();
+      $posts[] = array(
+        'title' => get_the_title(),
+        'description' => get_the_content(),
+        'link' => get_permalink(),
+      );
+    }
+    ?>
+
     <div class="container">
       <div class="service-section-banner whole-block" style="height: 200px; background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/5.jpg'); background-position: center center; background-size: cover;"></div>
       <div class="service-item-title whole-block">
-        <h2 class="text-title text-green">Consultoria</h2>
+        <h2 class="text-center mobile text-title text-green">Consultoria</h2>
       </div>
       <div class="row">
+        <?php foreach ($posts as $post): ?>
         <div class="col-xs-12 col-md-6 col-lg-6 each-service">
           <div class="service-post whole-block">
-            <h4 class="text-title text-green col-xs-12 text-center">Título da Fucking Postagem de Fazer os Olhos Pularem na Tela</h4>
+            <h5 class="text-title text-green col-xs-12 text-center"><?php echo $post['title']; ?></h5>
             <div class="each-post-content col-xs-12 text-jusitify">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+              <p><?php echo $post['description']; ?></p>
             </div>
           </div>
         </div>
-        <div class="col-xs-12 col-md-6 col-lg-6 each-service">
-          <div class="service-post whole-block">
-            <h4 class="text-title text-green col-xs-12 text-center">Título da Fucking Postagem de Fazer os Olhos Pularem na Tela</h4>
-            <div class="each-post-content col-xs-12 text-jusitify">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-12 col-md-6 col-lg-6 each-service">
-          <div class="service-post whole-block">
-            <h4 class="text-title text-green col-xs-12 text-center">Título da Fucking Postagem de Fazer os Olhos Pularem na Tela</h4>
-            <div class="each-post-content col-xs-12 text-jusitify">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-xs-12 col-md-6 col-lg-6 each-service">
-          <div class="service-post whole-block">
-            <h4 class="text-title text-green col-xs-12 text-center">Título da Fucking Postagem de Fazer os Olhos Pularem na Tela</h4>
-            <div class="each-post-content col-xs-12 text-jusitify">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-12 col-md-6 col-lg-6 each-service">
-          <div class="service-post whole-block">
-            <h4 class="text-title text-green col-xs-12 text-center">Título da Fucking Postagem de Fazer os Olhos Pularem na Tela</h4>
-            <div class="each-post-content col-xs-12 text-jusitify">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-xs-12 col-md-6 col-lg-6 each-service">
-          <div class="service-post whole-block">
-            <h4 class="text-title text-green col-xs-12 text-center">Título da Fucking Postagem de Fazer os Olhos Pularem na Tela</h4>
-            <div class="each-post-content col-xs-12 text-jusitify">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-12 col-md-6 col-lg-6 each-service">
-          <div class="service-post whole-block">
-            <h4 class="text-title text-green col-xs-12 text-center">Título da Fucking Postagem de Fazer os Olhos Pularem na Tela</h4>
-            <div class="each-post-content col-xs-12 text-jusitify">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-xs-12 col-md-6 col-lg-6 each-service">
-          <div class="service-post whole-block">
-            <h4 class="text-title text-green col-xs-12 text-center">Título da Fucking Postagem de Fazer os Olhos Pularem na Tela</h4>
-            <div class="each-post-content col-xs-12 text-jusitify">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div>
-          </div>
-        </div>
+        <?php endforeach;  wp_reset_query();?>
       </div>
     </div>
   </div>
@@ -108,12 +64,12 @@ get_header();
     <div class="container">
       <div class="service-section-banner whole-block" style="height: 200px; background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/5.jpg'); background-position: center center; background-size: cover; "></div>
       <div class="service-item-title whole-block">
-        <h2 class="text-title text-blue">Combate à Incendio</h2>
+        <h2 class="text-center mobile text-title text-blue">Combate à Incendio</h2>
       </div>
       <div class="row">
         <div class="col-xs-12 col-md-6 col-lg-6 each-service">
           <div class="service-post whole-block">
-            <h4 class="text-title text-blue col-xs-12 text-center">Título da Fucking Postagem de Fazer os Olhos Pularem na Tela</h4>
+            <h5 class="text-title text-blue col-xs-12 text-center">Título da Fucking Postagem de Fazer os Olhos Pularem na Tela</h5>
             <div class="each-post-content col-xs-12 text-jusitify">
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             </div>
@@ -121,25 +77,7 @@ get_header();
         </div>
         <div class="col-xs-12 col-md-6 col-lg-6 each-service">
           <div class="service-post whole-block">
-            <h4 class="text-title text-blue col-xs-12 text-center">Título da Fucking Postagem de Fazer os Olhos Pularem na Tela</h4>
-            <div class="each-post-content col-xs-12 text-jusitify">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-12 col-md-6 col-lg-6 each-service">
-          <div class="service-post whole-block">
-            <h4 class="text-title text-blue col-xs-12 text-center">Título da Fucking Postagem de Fazer os Olhos Pularem na Tela</h4>
-            <div class="each-post-content col-xs-12 text-jusitify">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-xs-12 col-md-6 col-lg-6 each-service">
-          <div class="service-post whole-block">
-            <h4 class="text-title text-blue col-xs-12 text-center">Título da Fucking Postagem de Fazer os Olhos Pularem na Tela</h4>
+            <h5 class="text-title text-blue col-xs-12 text-center">Título da Fucking Postagem de Fazer os Olhos Pularem na Tela</h5>
             <div class="each-post-content col-xs-12 text-jusitify">
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             </div>
@@ -149,7 +87,7 @@ get_header();
       <div class="row">
         <div class="col-xs-12 col-md-6 col-lg-6 each-service">
           <div class="service-post whole-block">
-            <h4 class="text-title text-blue col-xs-12 text-center">Título da Fucking Postagem de Fazer os Olhos Pularem na Tela</h4>
+            <h5 class="text-title text-blue col-xs-12 text-center">Título da Fucking Postagem de Fazer os Olhos Pularem na Tela</h5>
             <div class="each-post-content col-xs-12 text-jusitify">
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             </div>
@@ -157,7 +95,7 @@ get_header();
         </div>
         <div class="col-xs-12 col-md-6 col-lg-6 each-service">
           <div class="service-post whole-block">
-            <h4 class="text-title text-blue col-xs-12 text-center">Título da Fucking Postagem de Fazer os Olhos Pularem na Tela</h4>
+            <h5 class="text-title text-blue col-xs-12 text-center">Título da Fucking Postagem de Fazer os Olhos Pularem na Tela</h5>
             <div class="each-post-content col-xs-12 text-jusitify">
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             </div>
@@ -167,7 +105,7 @@ get_header();
       <div class="row">
         <div class="col-xs-12 col-md-6 col-lg-6 each-service">
           <div class="service-post whole-block">
-            <h4 class="text-title text-blue col-xs-12 text-center">Título da Fucking Postagem de Fazer os Olhos Pularem na Tela</h4>
+            <h5 class="text-title text-blue col-xs-12 text-center">Título da Fucking Postagem de Fazer os Olhos Pularem na Tela</h5>
             <div class="each-post-content col-xs-12 text-jusitify">
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             </div>
@@ -175,7 +113,25 @@ get_header();
         </div>
         <div class="col-xs-12 col-md-6 col-lg-6 each-service">
           <div class="service-post whole-block">
-            <h4 class="text-title text-blue col-xs-12 text-center">Título da Fucking Postagem de Fazer os Olhos Pularem na Tela</h4>
+            <h5 class="text-title text-blue col-xs-12 text-center">Título da Fucking Postagem de Fazer os Olhos Pularem na Tela</h5>
+            <div class="each-post-content col-xs-12 text-jusitify">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-md-6 col-lg-6 each-service">
+          <div class="service-post whole-block">
+            <h5 class="text-title text-blue col-xs-12 text-center">Título da Fucking Postagem de Fazer os Olhos Pularem na Tela</h5>
+            <div class="each-post-content col-xs-12 text-jusitify">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-md-6 col-lg-6 each-service">
+          <div class="service-post whole-block">
+            <h5 class="text-title text-blue col-xs-12 text-center">Título da Fucking Postagem de Fazer os Olhos Pularem na Tela</h5>
             <div class="each-post-content col-xs-12 text-jusitify">
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             </div>
@@ -188,12 +144,12 @@ get_header();
     <div class="container">
       <div class="service-section-banner whole-block" style="height: 200px; background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/5.jpg'); background-position: center center; background-size: cover;"></div>
       <div class="service-item-title whole-block">
-        <h2 class="text-title text-green">Segurança do Trabalho</h2>
+        <h2 class="text-center mobile text-title text-green">Segurança do Trabalho</h2>
       </div>
       <div class="row">
         <div class="col-xs-12 col-md-6 col-lg-6 each-service">
           <div class="service-post whole-block">
-            <h4 class="text-title text-green col-xs-12 text-center">Título da Fucking Postagem de Fazer os Olhos Pularem na Tela</h4>
+            <h5 class="text-title text-green col-xs-12 text-center">Título da Fucking Postagem de Fazer os Olhos Pularem na Tela</h5>
             <div class="each-post-content col-xs-12 text-jusitify">
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             </div>
@@ -201,25 +157,7 @@ get_header();
         </div>
         <div class="col-xs-12 col-md-6 col-lg-6 each-service">
           <div class="service-post whole-block">
-            <h4 class="text-title text-green col-xs-12 text-center">Título da Fucking Postagem de Fazer os Olhos Pularem na Tela</h4>
-            <div class="each-post-content col-xs-12 text-jusitify">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-12 col-md-6 col-lg-6 each-service">
-          <div class="service-post whole-block">
-            <h4 class="text-title text-green col-xs-12 text-center">Título da Fucking Postagem de Fazer os Olhos Pularem na Tela</h4>
-            <div class="each-post-content col-xs-12 text-jusitify">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-xs-12 col-md-6 col-lg-6 each-service">
-          <div class="service-post whole-block">
-            <h4 class="text-title text-green col-xs-12 text-center">Título da Fucking Postagem de Fazer os Olhos Pularem na Tela</h4>
+            <h5 class="text-title text-green col-xs-12 text-center">Título da Fucking Postagem de Fazer os Olhos Pularem na Tela</h5>
             <div class="each-post-content col-xs-12 text-jusitify">
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             </div>
@@ -229,7 +167,7 @@ get_header();
       <div class="row">
         <div class="col-xs-12 col-md-6 col-lg-6 each-service">
           <div class="service-post whole-block">
-            <h4 class="text-title text-green col-xs-12 text-center">Título da Fucking Postagem de Fazer os Olhos Pularem na Tela</h4>
+            <h5 class="text-title text-green col-xs-12 text-center">Título da Fucking Postagem de Fazer os Olhos Pularem na Tela</h5>
             <div class="each-post-content col-xs-12 text-jusitify">
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             </div>
@@ -237,7 +175,7 @@ get_header();
         </div>
         <div class="col-xs-12 col-md-6 col-lg-6 each-service">
           <div class="service-post whole-block">
-            <h4 class="text-title text-green col-xs-12 text-center">Título da Fucking Postagem de Fazer os Olhos Pularem na Tela</h4>
+            <h5 class="text-title text-green col-xs-12 text-center">Título da Fucking Postagem de Fazer os Olhos Pularem na Tela</h5>
             <div class="each-post-content col-xs-12 text-jusitify">
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             </div>
@@ -247,7 +185,7 @@ get_header();
       <div class="row">
         <div class="col-xs-12 col-md-6 col-lg-6 each-service">
           <div class="service-post whole-block">
-            <h4 class="text-title text-green col-xs-12 text-center">Título da Fucking Postagem de Fazer os Olhos Pularem na Tela</h4>
+            <h5 class="text-title text-green col-xs-12 text-center">Título da Fucking Postagem de Fazer os Olhos Pularem na Tela</h5>
             <div class="each-post-content col-xs-12 text-jusitify">
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             </div>
@@ -255,7 +193,25 @@ get_header();
         </div>
         <div class="col-xs-12 col-md-6 col-lg-6 each-service">
           <div class="service-post whole-block">
-            <h4 class="text-title text-green col-xs-12 text-center">Título da Fucking Postagem de Fazer os Olhos Pularem na Tela</h4>
+            <h5 class="text-title text-green col-xs-12 text-center">Título da Fucking Postagem de Fazer os Olhos Pularem na Tela</h5>
+            <div class="each-post-content col-xs-12 text-jusitify">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-md-6 col-lg-6 each-service">
+          <div class="service-post whole-block">
+            <h5 class="text-title text-green col-xs-12 text-center">Título da Fucking Postagem de Fazer os Olhos Pularem na Tela</h5>
+            <div class="each-post-content col-xs-12 text-jusitify">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-md-6 col-lg-6 each-service">
+          <div class="service-post whole-block">
+            <h5 class="text-title text-green col-xs-12 text-center">Título da Fucking Postagem de Fazer os Olhos Pularem na Tela</h5>
             <div class="each-post-content col-xs-12 text-jusitify">
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             </div>
@@ -268,12 +224,12 @@ get_header();
     <div class="container">
       <div class="service-section-banner whole-block" style="height: 200px; background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/5.jpg'); background-position: center center; background-size: cover;"></div>
       <div class="service-item-title whole-block">
-        <h2 class="text-title text-blue">Eletricidade</h2>
+        <h2 class="text-center mobile text-title text-blue">Eletricidade</h2>
       </div>
       <div class="row">
         <div class="col-xs-12 col-md-6 col-lg-6 each-service">
           <div class="service-post whole-block">
-            <h4 class="text-title text-blue col-xs-12 text-center">Título da Fucking Postagem de Fazer os Olhos Pularem na Tela</h4>
+            <h5 class="text-title text-blue col-xs-12 text-center">Título da Fucking Postagem de Fazer os Olhos Pularem na Tela</h5>
             <div class="each-post-content col-xs-12 text-jusitify">
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             </div>
@@ -281,25 +237,7 @@ get_header();
         </div>
         <div class="col-xs-12 col-md-6 col-lg-6 each-service">
           <div class="service-post whole-block">
-            <h4 class="text-title text-blue col-xs-12 text-center">Título da Fucking Postagem de Fazer os Olhos Pularem na Tela</h4>
-            <div class="each-post-content col-xs-12 text-jusitify">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-12 col-md-6 col-lg-6 each-service">
-          <div class="service-post whole-block">
-            <h4 class="text-title text-blue col-xs-12 text-center">Título da Fucking Postagem de Fazer os Olhos Pularem na Tela</h4>
-            <div class="each-post-content col-xs-12 text-jusitify">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-xs-12 col-md-6 col-lg-6 each-service">
-          <div class="service-post whole-block">
-            <h4 class="text-title text-blue col-xs-12 text-center">Título da Fucking Postagem de Fazer os Olhos Pularem na Tela</h4>
+            <h5 class="text-title text-blue col-xs-12 text-center">Título da Fucking Postagem de Fazer os Olhos Pularem na Tela</h5>
             <div class="each-post-content col-xs-12 text-jusitify">
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             </div>
@@ -309,7 +247,7 @@ get_header();
       <div class="row">
         <div class="col-xs-12 col-md-6 col-lg-6 each-service">
           <div class="service-post whole-block">
-            <h4 class="text-title text-blue col-xs-12 text-center">Título da Fucking Postagem de Fazer os Olhos Pularem na Tela</h4>
+            <h5 class="text-title text-blue col-xs-12 text-center">Título da Fucking Postagem de Fazer os Olhos Pularem na Tela</h5>
             <div class="each-post-content col-xs-12 text-jusitify">
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             </div>
@@ -317,7 +255,7 @@ get_header();
         </div>
         <div class="col-xs-12 col-md-6 col-lg-6 each-service">
           <div class="service-post whole-block">
-            <h4 class="text-title text-blue col-xs-12 text-center">Título da Fucking Postagem de Fazer os Olhos Pularem na Tela</h4>
+            <h5 class="text-title text-blue col-xs-12 text-center">Título da Fucking Postagem de Fazer os Olhos Pularem na Tela</h5>
             <div class="each-post-content col-xs-12 text-jusitify">
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             </div>
@@ -327,7 +265,7 @@ get_header();
       <div class="row">
         <div class="col-xs-12 col-md-6 col-lg-6 each-service">
           <div class="service-post whole-block">
-            <h4 class="text-title text-blue col-xs-12 text-center">Título da Fucking Postagem de Fazer os Olhos Pularem na Tela</h4>
+            <h5 class="text-title text-blue col-xs-12 text-center">Título da Fucking Postagem de Fazer os Olhos Pularem na Tela</h5>
             <div class="each-post-content col-xs-12 text-jusitify">
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             </div>
@@ -335,7 +273,25 @@ get_header();
         </div>
         <div class="col-xs-12 col-md-6 col-lg-6 each-service">
           <div class="service-post whole-block">
-            <h4 class="text-title text-blue col-xs-12 text-center">Título da Fucking Postagem de Fazer os Olhos Pularem na Tela</h4>
+            <h5 class="text-title text-blue col-xs-12 text-center">Título da Fucking Postagem de Fazer os Olhos Pularem na Tela</h5>
+            <div class="each-post-content col-xs-12 text-jusitify">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-md-6 col-lg-6 each-service">
+          <div class="service-post whole-block">
+            <h5 class="text-title text-blue col-xs-12 text-center">Título da Fucking Postagem de Fazer os Olhos Pularem na Tela</h5>
+            <div class="each-post-content col-xs-12 text-jusitify">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-md-6 col-lg-6 each-service">
+          <div class="service-post whole-block">
+            <h5 class="text-title text-blue col-xs-12 text-center">Título da Fucking Postagem de Fazer os Olhos Pularem na Tela</h5>
             <div class="each-post-content col-xs-12 text-jusitify">
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             </div>
