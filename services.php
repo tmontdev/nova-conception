@@ -26,19 +26,36 @@ get_header();
   </div>
   <div class="service-item hb-green consulting" id="consulting">
     <?php
-    $posts = array();
+    $posts = array(
+        'consulting' => array(),
+        'fire' => array(),
+        'security' => array(),
+        'bolt' => array()
+    );
+
     $args = array(
-      'post_type' => 'ConsultingServices'
-  );
+      'post_type' => 'services',
+        'posts_per_page' => -1
+    );
     $query = new WP_Query( $args );
     while($query->have_posts()) {
       $query->the_post();
-      $posts[] = array(
+      $id = get_the_ID();
+      $type = get_post_meta($id, 'information-type', true);
+
+      $posts[$type][] = array(
         'title' => get_the_title(),
         'description' => get_the_content(),
-        'link' => get_permalink(),
+          'type' => $type
       );
     }
+    wp_reset_query();
+
+    $posts['consulting'] = array_chunk($posts['consulting'], 2);
+    $posts['fire'] = array_chunk($posts['fire'], 2);
+    $posts['security'] = array_chunk($posts['fire'], 2);
+    $posts['bolt'] = array_chunk($posts['fire'], 2);
+
     ?>
 
     <div class="container">
@@ -46,8 +63,10 @@ get_header();
       <div class="service-item-title whole-block">
         <h2 class="text-center mobile text-title text-green">Consultoria</h2>
       </div>
+
+	    <?php foreach ($posts['consulting'] as $chunk): ?>
       <div class="row">
-        <?php foreach ($posts as $post): ?>
+            <?php foreach($chunk as $post){ ?>
         <div class="col-xs-12 col-md-6 col-lg-6 each-service">
           <div class="service-post whole-block">
             <h5 class="text-title text-green col-xs-12 text-center"><?php echo $post['title']; ?></h5>
@@ -56,8 +75,10 @@ get_header();
             </div>
           </div>
         </div>
-        <?php endforeach;  wp_reset_query();?>
+        <?php }; ?>
+
       </div>
+	    <?php endforeach;  ?>
     </div>
   </div>
   <div class="service-item hb-blue fire" id="fire">

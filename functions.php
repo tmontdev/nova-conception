@@ -15,26 +15,22 @@ function wpdocs_custom_excerpt_length( $length ) {
 }
 add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999 );
 
+/**
+ * Call vendor load in app
+ */
+require get_template_directory()."/app/vendor.php";
 
-function wptester_admin_tabs( $current = 'services' ) {
-    $tabs = array( 'services' => 'Home', 'Consultoria' => 'Consultoria', 'Combate' => 'Combate ao Incendio', 'Segurança' => 'Segurança no Trabalho', 'Eletricidade' => 'Eletricidade');
-    $links = array();
-    echo '<div id="icon-themes" class="icon32"><br></div>';
-    echo '<h2 class="nav-tab-wrapper">';
-    foreach( $tabs as $tab => $name ){
-        $class = ( $tab == $current ) ? ' nav-tab-active' : '';
-        echo "<a class='nav-tab$class' href='?page=theme-settings&tab=$tab'>$name</a>";
+function partition( $list, $p ) {
+	$listlen = count( $list );
 
-    }
-    echo '</h2>';
+	$partlen = floor( $listlen / $p );
+	$partrem = $listlen % $p;
+	$partition = array();
+	$mark = 0;
+	for ($px = 0; $px < $p; $px++) {
+		$incr = ($px < $partrem) ? $partlen + 1 : $partlen;
+		$partition[$px] = array_slice( $list, $mark, $incr );
+		$mark += $incr;
+	}
+	return $partition;
 }
-function wptester_settings_page() {
-    global $pagenow;
-    $settings = get_option( "wptester_theme_settings" );
-
-        //some html and code goes here...
-
-        if ( isset ( $_GET['tab'] ) ) wptester_admin_tabs($_GET['tab']); else wptester_admin_tabs('homepage');
-
-//...
-?>
