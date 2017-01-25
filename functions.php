@@ -16,53 +16,25 @@ function wpdocs_custom_excerpt_length( $length ) {
 add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999 );
 
 
+function wptester_admin_tabs( $current = 'services' ) {
+    $tabs = array( 'services' => 'Home', 'Consultoria' => 'Consultoria', 'Combate' => 'Combate ao Incendio', 'Segurança' => 'Segurança no Trabalho', 'Eletricidade' => 'Eletricidade');
+    $links = array();
+    echo '<div id="icon-themes" class="icon32"><br></div>';
+    echo '<h2 class="nav-tab-wrapper">';
+    foreach( $tabs as $tab => $name ){
+        $class = ( $tab == $current ) ? ' nav-tab-active' : '';
+        echo "<a class='nav-tab$class' href='?page=theme-settings&tab=$tab'>$name</a>";
 
-add_action( 'init', 'create_post_type_ConsultingServices' );
-function create_post_type_ConsultingServices() {
-    register_post_type( 'ConsultingServices',
-        array(
-            'labels' => array(
-                'name' => __( 'Serviços de Consultoria' ),
-                'singular_name' => __( 'ConsultingService' )
-            ),
-            'public' => true,
-        )
-    );
+    }
+    echo '</h2>';
 }
-add_action( 'init', 'create_post_type_FireServices' );
-function create_post_type_FireServices() {
-    register_post_type( 'FireServices',
-        array(
-            'labels' => array(
-                'name' => __( 'Serviços Combate Incêndio' ),
-                'singular_name' => __( 'FireService' )
-            ),
-            'public' => true,
-        )
-    );
-}
-add_action( 'init', 'create_post_type_SecurityServices' );
-function create_post_type_SecurityServices() {
-    register_post_type( 'SecurityServices',
-        array(
-            'labels' => array(
-                'name' => __( 'Serviços Segurança Trabalho' ),
-                'singular_name' => __( 'SecurityService' )
-            ),
-            'public' => true,
-        )
-    );
-}
-add_action( 'init', 'create_post_type_BoltServices' );
-function create_post_type_BoltServices() {
-    register_post_type( 'BoltServices',
-        array(
-            'labels' => array(
-                'name' => __( 'Serviços De Eletricidade' ),
-                'singular_name' => __( 'BoltService' )
-            ),
-            'public' => true,
-        )
-    );
-}
+function wptester_settings_page() {
+    global $pagenow;
+    $settings = get_option( "wptester_theme_settings" );
+
+        //some html and code goes here...
+
+        if ( isset ( $_GET['tab'] ) ) wptester_admin_tabs($_GET['tab']); else wptester_admin_tabs('homepage');
+
+//...
 ?>
