@@ -5,6 +5,40 @@
 get_header();
 ?>
 <?php include(get_template_directory()."/page-reference.php"); ?>
+<?php
+$posts = array(
+    'company' => array(),
+    'mission' => array(),
+    'vision' => array(),
+    'values' => array(),
+    'partners' => array()
+);
+
+$args = array(
+  'post_type' => 'about',
+    'posts_per_page' => 1
+);
+$query = new WP_Query( $args );
+while($query->have_posts()) {
+  $query->the_post();
+  $id = get_the_ID();
+  $type = get_post_meta($id, 'information-type', true);
+
+  $posts[$type][] = array(
+    'title' => get_the_title(),
+    'description' => get_the_content(),
+      'type' => $type
+  );
+}
+wp_reset_query();
+
+$posts['company'] = array_chunk($posts['company'], 1);
+$posts['mission'] = array_chunk($posts['mission'], 1);
+$posts['vision'] = array_chunk($posts['vision'], 1);
+$posts['values'] = array_chunk($posts['values'], 1);
+$posts['partners'] = array_chunk($posts['partners'], 1);
+?>
+
 <section class="about">
   <div class="about-menu">
     <div class="container">
@@ -31,14 +65,15 @@ get_header();
     <div class="about-item-bg desktop"></div>
     <div class="container">
       <div class="col-xs-12 col-md-7 about-item-content">
+        <?php foreach ($posts['company'] as $chunk): ?>
         <div class="about-item-title">
-          <h2 class="text-title">A Empresa</h2>
-          <p>Criada em Julho de 2012 pelo Eng. Raphael Mandelli A. Garcia, a Conception Engenharia nasceu com a proposta de elaboração e execução de projetos elétricos residenciais e comerciais de forma rápida e eficiente. Logo se destacou no mercado
-             pelo seu comprometimento ético e pela extrema qualidade em seus serviços e atualmente ampliou sua gama de atividades também no ramo de segurança do trabalho.</p>
+          <?php foreach($chunk as $post){ ?>
+          <h2 class="text-title"><?php echo $post['title']; ?></h2>
+          <p><?php echo $post['description']; ?></p><?php }; ?>
         </div>
       </div>
     </div>
-  </div>
+  </div><?php endforeach;  ?>
   <div class="about-item hb-blue text-blue" id="mission">
     <div class="about-item-bg desktop"></div>
     <div class="container">
