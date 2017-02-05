@@ -122,6 +122,10 @@ body left 0 {
 .border-none {
   border: none !important;
 }
+.middle {
+  vertical-align: middle;
+  padding: 10px 0;
+}
 .bg-green {
   background-color: #0c854d;
 }
@@ -1002,14 +1006,23 @@ body left 0 {
   position: absolute;
   background-color: #fff;
   display: table;
+  cursor: pointer;
+  -webkit-transition: all 250ms ease-in-out;
+  transition: all 250ms ease-in-out;
+  -moz-transition: all 250ms ease-in-out;
+  -o-transition: all 250ms ease-in-out;
+  -ms-transition: all 250ms ease-in-out;
 }
-.services .service-item .service-item-title {
-  width: 100%;
-  float: left;
-  padding: 15px;
+.services .service-item .row {
+  -webkit-transition: all 250ms ease-in-out;
+  transition: all 250ms ease-in-out;
+  -moz-transition: all 250ms ease-in-out;
+  -o-transition: all 250ms ease-in-out;
+  -ms-transition: all 250ms ease-in-out;
 }
-.services .service-item .each-service {
-  padding: 15px;
+.services .service-item .row .service-post-content {
+  display: block;
+  padding: 10px 60px;
   -webkit-transition: all 250ms ease-in-out;
   transition: all 250ms ease-in-out;
   -moz-transition: all 250ms ease-in-out;
@@ -1017,11 +1030,100 @@ body left 0 {
   -ms-transition: all 250ms ease-in-out;
 }
 @media (max-width: 768px) {
-  .services .service-item .each-service {
-    padding: 15px 0;
+  .services .service-item .row .service-post-content {
+    padding: 10px;
   }
 }
-.services .service-item .each-service .service-post {
-  background-color: #fafafa;
+.services .service-item .row .service-post-content .dropdown {
+  border-radius: 5px;
+  display: block;
+  -webkit-transition: all 250ms ease-in-out;
+  transition: all 250ms ease-in-out;
+  -moz-transition: all 250ms ease-in-out;
+  -o-transition: all 250ms ease-in-out;
+  -ms-transition: all 250ms ease-in-out;
+}
+.services .service-item .row .service-post-content .dropdown .service-post-head {
+  position: relative;
+  -webkit-transition: all 250ms ease-in-out;
+  transition: all 250ms ease-in-out;
+  -moz-transition: all 250ms ease-in-out;
+  -o-transition: all 250ms ease-in-out;
+  -ms-transition: all 250ms ease-in-out;
+  border-radius: 5px;
+}
+.services .service-item .row .service-post-content .dropdown .service-post-head:not(.dd-blue) {
+  background: #0c854d;
+  box-shadow: 0px 0px 5px #0c854d;
+}
+.services .service-item .row .service-post-content .dropdown .service-post-head:not(.dd-green) {
+  background: #3d7fa9;
+  box-shadow: 0px 0px 5px #3d7fa9;
+}
+.services .service-item .row .service-post-content .dropdown .service-post-head .service-post-icon i {
+  position: absolute;
+  top: 60%;
+  left: 15px;
+  font-size: 25px;
+}
+.services .service-item .row .service-post-content .dropdown .service-post-head .indicator {
+  -webkit-transition: all 250ms ease-in-out;
+  transition: all 250ms ease-in-out;
+  -moz-transition: all 250ms ease-in-out;
+  -o-transition: all 250ms ease-in-out;
+  -ms-transition: all 250ms ease-in-out;
+}
+.services .service-item .row .service-post-content .dropdown .service-post-head .indicator .indicator-content {
+  width: 15px;
+  height: 15px;
+  background-color: transparent;
+  border-bottom: solid 5px #fff;
+  border-right: solid 5px rgba(255,255,255,0.5);
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  position: absolute;
+  top: 120%;
+  right: 15px;
+  -webkit-transition: all 250ms ease-in-out;
+  transition: all 250ms ease-in-out;
+  -moz-transition: all 250ms ease-in-out;
+  -o-transition: all 250ms ease-in-out;
+  -ms-transition: all 250ms ease-in-out;
+}
+.services .service-item .row .service-post-content .dropdown .service-post-body {
   padding: 10px;
+  height: 100%;
+  border-top: none !important;
+  margin-top: -5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  -webkit-transition: all 250ms ease-in-out;
+  transition: all 250ms ease-in-out;
+  -moz-transition: all 250ms ease-in-out;
+  -o-transition: all 250ms ease-in-out;
+  -ms-transition: all 250ms ease-in-out;
+}
+.services .service-item .row .dropdown:not(.actived) .service-post-head .indicator .indicator-content {
+  -webkit-transform: rotate(225deg);
+  transform: rotate(225deg);
+  -moz-transform: rotate(225deg);
+  -o-transform: rotate(225deg);
+  -ms-transform: rotate(225deg);
+  -webkit-transition: all 250ms ease-in-out;
+  transition: all 250ms ease-in-out;
+  -moz-transition: all 250ms ease-in-out;
+  -o-transition: all 250ms ease-in-out;
+  -ms-transition: all 250ms ease-in-out;
+}
+.services .service-item .row .dropdown:not(.actived) .service-post-body {
+  height: 0px;
+  -webkit-transition: all 250ms ease-in-out;
+  transition: all 250ms ease-in-out;
+  -moz-transition: all 250ms ease-in-out;
+  -o-transition: all 250ms ease-in-out;
+  -ms-transition: all 250ms ease-in-out;
+  opacity: 0;
 }

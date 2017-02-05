@@ -42,14 +42,64 @@
     position absolute
     background-color white
     display table
-    .service-item-title
-      size 100
-      padding 15px
-    .each-service
-      padding 15px
+    cursor pointer
+    transition all 250ms ease-in-out
+    .row
       transition all 250ms ease-in-out
-      @media(max-width: 768px)
-        padding 15px 0
-      .service-post
-        background-color #fafafa
-        padding 10px
+      .service-post-content
+        display block
+        padding 10px 60px
+        transition all 250ms ease-in-out
+        @media(max-width: 768px)
+          padding 10px
+        .dropdown
+          border-radius 5px
+          display block
+          transition all 250ms ease-in-out
+          .service-post-head
+            position relative
+            transition all 250ms ease-in-out
+            border-radius 5px
+            &:not(.dd-blue)
+              background $green2
+              box-shadow 0px 0px 5px $green2
+            &:not(.dd-green)
+              background $blue2
+              box-shadow 0px 0px 5px $blue2
+            .service-post-icon
+              i
+                position absolute
+                top 60%
+                left 15px
+                font-size 25px
+            .indicator
+              transition all 250ms ease-in-out
+              .indicator-content
+                width 15px
+                height 15px
+                background-color transparent
+                border-bottom solid 5px white
+                border-right solid 5px alpha(white, 50%)
+                transform rotate(45deg)
+                position absolute
+                top 120%
+                right 15px
+                transition all 250ms ease-in-out
+          .service-post-body
+            padding 10px
+            height 100%
+            border-top none !important
+            margin-top -5px
+            border-bottom-left-radius 5px
+            border-bottom-right-radius 5px
+            transition all 250ms ease-in-out
+      .dropdown:not(.actived)
+        .service-post-head
+          .indicator
+            .indicator-content
+              transform rotate(225deg)
+              transition all 250ms ease-in-out
+        .service-post-body
+          height 0px
+          transition all 250ms ease-in-out
+          opacity 0

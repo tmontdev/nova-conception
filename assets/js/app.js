@@ -253,12 +253,21 @@ $('.menu-button').click(function(event) {
     distance =initialBolt +prh -mt;
   }
 
-
-
-
   $('html, body').animate({
         scrollTop: distance
       }, 1000);
 
+
+});
+$('.dropdown').click(function(event) {
+      if ($(this).hasClass('actived')) {
+        $(this).removeClass('actived');
+        extra = 0;
+      } else {
+        $('.dropdown').each(function(index, el) {
+          $(this).removeClass('actived');
+        });
+        $(this).addClass('actived');
+      }
 });
 })(jQuery);

@@ -15,7 +15,7 @@ $posts = array(
 );
 
 $args = array(
-  'post_type' => 'about',
+  'post_type' => 'Sobre',
     'posts_per_page' => 1
 );
 $query = new WP_Query( $args );
@@ -27,16 +27,11 @@ while($query->have_posts()) {
   $posts[$type][] = array(
     'title' => get_the_title(),
     'description' => get_the_content(),
-      'type' => $type
+    'type' => $type,
+    'thumb' => get_the_post_thumbnail_url()
   );
 }
 wp_reset_query();
-
-$posts['company'] = array_chunk($posts['company'], 1);
-$posts['mission'] = array_chunk($posts['mission'], 1);
-$posts['vision'] = array_chunk($posts['vision'], 1);
-$posts['values'] = array_chunk($posts['values'], 1);
-$posts['partners'] = array_chunk($posts['partners'], 1);
 ?>
 
 <section class="about">
@@ -65,11 +60,10 @@ $posts['partners'] = array_chunk($posts['partners'], 1);
     <div class="about-item-bg desktop"></div>
     <div class="container">
       <div class="col-xs-12 col-md-7 about-item-content">
-        <?php foreach ($posts['company'] as $chunk): ?>
+        <?php foreach ($posts['company'] as $post): ?>
         <div class="about-item-title">
-          <?php foreach($chunk as $post){ ?>
           <h2 class="text-title"><?php echo $post['title']; ?></h2>
-          <p><?php echo $post['description']; ?></p><?php }; ?>
+          <p><?php echo $post['description']; ?></p>
         </div>
       </div>
     </div>
