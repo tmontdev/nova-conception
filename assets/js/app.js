@@ -206,32 +206,6 @@ var obvious = 100 + mt;
 		else { $('#bolt-button').removeClass("actived"); }
 	});
 
-
-
-	//scroll to dos links
-	//define onde é o top de cada um dos elementos
-  /*
-  $('#consulting-button').click(function(event) {
-		$('html, body').animate({
-          scrollTop: initialConsulting
-        }, 1000);
-	});
-	$('#fire-button').click(function(event) {
-		$('html, body').animate({
-          scrollTop: initialFire
-        }, 1000);
-	});
-	$('#security-button').click(function(event) {
-		$('html, body').animate({
-          scrollTop: initialSecurity
-        }, 1000);
-	});
-	$('#bolt-button').click(function(event) {
-		$('html, body').animate({
-          scrollTop: osBolt_
-        }, 1000);
-	});
-*/
 $('.menu-button').click(function(event) {
   var pos = $(window).scrollTop(); //posição atual
   var target = $(this).attr('data-target');
@@ -256,18 +230,6 @@ $('.menu-button').click(function(event) {
   $('html, body').animate({
         scrollTop: distance
       }, 1000);
-
-
 });
-$('.dropdown').click(function(event) {
-      if ($(this).hasClass('actived')) {
-        $(this).removeClass('actived');
-        extra = 0;
-      } else {
-        $('.dropdown').each(function(index, el) {
-          $(this).removeClass('actived');
-        });
-        $(this).addClass('actived');
-      }
-});
+
 })(jQuery);
