@@ -121,24 +121,28 @@ var obvious = 100 + mt;
 	if (osSecurity < 0 ) { atualSecurity = initialSecurity + (osSecurity  * -1); osSecurity_ = 0 }
 	if (osBolt < 0 ) { atualBolt = initialBolt + (osBolt  * -1); osBolt_ = 0 }
 
+	function resize() {
+        var window_h = $(window).height() ;
+
+        osConsulting = consultingH- window_h + extraConsulting;
+        osFire = fireH - window_h + extraFire;
+        osSecurity = securityH - window_h + extraSecurity;
+        osBolt = boltH - window_h + extraBolt;
+
+        osConsulting_ = osConsulting;
+        osFire_ = osFire;
+        osSecurity_ = osSecurity;
+        osBolt_ = osBolt;
+
+        if (osConsulting < 0 ) { atualConsulting = initialConsulting + (osConsulting  * -1); osConsulting_ = 0 }
+        if (osFire < 0 ) { atualFire = initialFire + (osFire  * -1); osFire_ = 0 }
+        if (osSecurity < 0 ) { atualSecurity = initialSecurity + (osSecurity  * -1); osSecurity_ = 0 }
+        if (osBolt < 0 ) { atualBolt = initialBolt + (osBolt  * -1); osBolt_ = 0 }
+    }
+
 	$(window).resize(function() {
 
-		var window_h = $(window).height() ;
-
-		osConsulting = consultingH- window_h;
-		osFire = fireH - window_h;
-		osSecurity = securityH - window_h;
-		osBolt = boltH - window_h;
-
-		osConsulting_ = osConsulting;
-		osFire_ = osFire;
-		osSecurity_ = osSecurity;
-		osBolt_ = osBolt;
-
-		if (osConsulting < 0 ) { atualConsulting = initialConsulting + (osConsulting  * -1); osConsulting_ = 0 }
-		if (osFire < 0 ) { atualFire = initialFire + (osFire  * -1); osFire_ = 0 }
-		if (osSecurity < 0 ) { atualSecurity = initialSecurity + (osSecurity  * -1); osSecurity_ = 0 }
-		if (osBolt < 0 ) { atualBolt = initialBolt + (osBolt  * -1); osBolt_ = 0 }
+	    resize();
 	});
 
 	//scroll to dos links
@@ -149,6 +153,42 @@ var obvious = 100 + mt;
 	tops[2] = prh + initialSecurity;
 	tops[3] = prh + initialBolt;
 
+    $('.dropdown').click(function(event) {
+        extraConsulting = 0;
+        extraFire = 0;
+        extraSecurity = 0;
+        extraBolt = 0;
+        if($(this).hasClass('actived')){
+            return $(this).removeClass('actived');
+        }
+        var _this = this;
+        $('.dropdown').each(function(index, el) {
+            $(this).removeClass('actived');
+        });
+
+        $(this).addClass('actived');
+
+        setTimeout(function(){
+            Extra = $(_this).find('.service-post-body').height();
+
+
+            if($(_this).closest('#consuting').length > 0){
+                extraConsulting = Extra;
+            }
+            if($(_this).closest('#fire').length > 0){
+                extraFire = Extra;
+            }
+            if($(_this).closest('#security').length > 0){
+                extraSecurity = Extra;
+            }
+            if($(_this).closest('#bolt').length > 0){
+                extraBolt = Extra;
+            }
+
+            resize();
+        }, 250)
+
+    });
 
 	// funcoes durante o scroll
 	$(window).scroll(function(e){
@@ -238,42 +278,3 @@ $('.menu-button').click(function(event) {
 
 })(jQuery);
 
-(function($){
-  $('.dropdown').click(function(event) {
-    extraConsulting = 0;
-    extraFire = 0;
-    extraSecurity = 0;
-    extraBolt = 0;
-    if($(this).hasClass('actived')){
-      return $(this).removeClass('actived');
-    }
-    var _this = this;
-    $('.dropdown').each(function(index, el) {
-      $(this).removeClass('actived');
-    });
-
-    $(this).addClass('actived');
-
-    setTimeout(function(){
-      Extra = $(_this).find('.service-post-body').height();
-
-
-      if($(_this).closest('#consuting').length > 0){
-        extraConsulting = Extra;
-      }
-      if($(_this).closest('#fire').length > 0){
-        extraFire = Extra;
-      }
-      if($(_this).closest('#security').length > 0){
-        extraSecurity = Extra;
-      }
-      if($(_this).closest('#bolt').length > 0){
-        extraBolt = Extra;
-      }
-
-
-    }, 250)
-
-  });
-
-})(jQuery);
