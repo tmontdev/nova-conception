@@ -1,3 +1,7 @@
+var extraConsulting = 0;
+var extraFire = 0;
+var extraSecurity = 0;
+var extraBolt = 0;
 (function($){ //códígo home page e header
 
   if ($(window).width() <768) {//Programação para dispositivos mobile
@@ -63,7 +67,7 @@
 
 })(jQuery);
 
-(function($){//services page code
+(function ($){//services page code
 
   //SCDROLL FIXO / ABSOLUTO
 	var anti_bug = 80; //padding do
@@ -157,10 +161,10 @@ var obvious = 100 + mt;
 
 
 		var pos = $(window).scrollTop();
-		posConsulting = ( pos - consultingH) + mt + window_h;
-		posFire = ( pos - consultingH) + mt + window_h;
-		posSecurity = ( pos - fireH) + mt + window_h;
-		posBolt = ( pos - securityH) + mt + window_h;
+		posConsulting = ( pos - consultingH) + mt + window_h + extraConsulting;
+		posFire = ( pos - consultingH) + mt + window_h +extraFire;
+		posSecurity = ( pos - fireH) + mt + window_h + extraSecurity;
+		posBolt = ( pos - securityH) + mt + window_h +extraBolt;
 
 		if(navigator.appVersion.indexOf("MSIE")==-1) { //se nao for ie
 
@@ -236,15 +240,40 @@ $('.menu-button').click(function(event) {
 
 (function($){
   $('.dropdown').click(function(event) {
-    if ($(this).hasClass('actived')) {
+    extraConsulting = 0;
+    extraFire = 0;
+    extraSecurity = 0;
+    extraBolt = 0;
+    if($(this).hasClass('actived')){
+      return $(this).removeClass('actived');
+    }
+    var _this = this;
+    $('.dropdown').each(function(index, el) {
       $(this).removeClass('actived');
+    });
 
-    }
-    else{
-      $('.dropdown').each(function(index, el) {
-        $(this).removeClass('actived');
-      });
-      $(this).addClass('actived');
-    }
+    $(this).addClass('actived');
+
+    setTimeout(function(){
+      Extra = $(_this).find('.service-post-body').height();
+
+
+      if($(_this).closest('#consuting').length > 0){
+        extraConsulting = Extra;
+      }
+      if($(_this).closest('#fire').length > 0){
+        extraFire = Extra;
+      }
+      if($(_this).closest('#security').length > 0){
+        extraSecurity = Extra;
+      }
+      if($(_this).closest('#bolt').length > 0){
+        extraBolt = Extra;
+      }
+
+
+    }, 250)
+
   });
+
 })(jQuery);
