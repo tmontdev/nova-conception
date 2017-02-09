@@ -233,3 +233,18 @@ $('.menu-button').click(function(event) {
 });
 
 })(jQuery);
+
+(function($){
+  $('.dropdown').click(function(event) {
+    if ($(this).hasClass('actived')) {
+      $(this).removeClass('actived');
+
+    }
+    else{
+      $('.dropdown').each(function(index, el) {
+        $(this).removeClass('actived');
+      });
+      $(this).addClass('actived');
+    }
+  });
+})(jQuery);

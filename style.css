@@ -979,7 +979,7 @@ body left 0 {
   -ms-transition: all 250ms ease-in-out;
 }
 .services .services-menu .services-menu-content .menu-button:not(.actived) {
-  border: none;
+  border: solid 1px transparent;
   opacity: 0.65;
   background-color: transparent;
 }
@@ -1074,11 +1074,11 @@ body left 0 {
   background-color: transparent;
   border-bottom: solid 5px #fff;
   border-right: solid 5px rgba(255,255,255,0.5);
-  -webkit-transform: rotate(45deg);
-  transform: rotate(45deg);
-  -moz-transform: rotate(45deg);
-  -o-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
+  -webkit-transform: rotate(225deg);
+  transform: rotate(225deg);
+  -moz-transform: rotate(225deg);
+  -o-transform: rotate(225deg);
+  -ms-transform: rotate(225deg);
   position: absolute;
   top: 120%;
   right: 15px;
@@ -1102,11 +1102,11 @@ body left 0 {
   -ms-transition: all 250ms ease-in-out;
 }
 .services .service-item .row .dropdown:not(.actived) .service-post-head .indicator .indicator-content {
-  -webkit-transform: rotate(225deg);
-  transform: rotate(225deg);
-  -moz-transform: rotate(225deg);
-  -o-transform: rotate(225deg);
-  -ms-transform: rotate(225deg);
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
   -webkit-transition: all 250ms ease-in-out;
   transition: all 250ms ease-in-out;
   -moz-transition: all 250ms ease-in-out;
