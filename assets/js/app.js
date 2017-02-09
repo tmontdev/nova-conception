@@ -122,6 +122,22 @@ var obvious = 100 + mt;
 	if (osBolt < 0 ) { atualBolt = initialBolt + (osBolt  * -1); osBolt_ = 0 }
 
 	function resize() {
+
+        osConsulting = consultingH- window_h;
+        osFire = fireH - window_h;
+        osSecurity = securityH - window_h;
+        osBolt = boltH - window_h;
+
+        osConsulting_ = osConsulting;
+        osFire_ = osFire;
+        osSecurity_ = osSecurity;
+        osBolt_ = osBolt;
+
+        if (osConsulting < 0 ) { atualConsulting = initialConsulting + (osConsulting  * -1); osConsulting_ = 0 }
+        if (osFire < 0 ) { atualFire = initialFire + (osFire  * -1); osFire_ = 0 }
+        if (osSecurity < 0 ) { atualSecurity = initialSecurity + (osSecurity  * -1); osSecurity_ = 0 }
+        if (osBolt < 0 ) { atualBolt = initialBolt + (osBolt  * -1); osBolt_ = 0 }
+
         var window_h = $(window).height() ;
 
         osConsulting = consultingH- window_h + extraConsulting;
@@ -138,6 +154,8 @@ var obvious = 100 + mt;
         if (osFire < 0 ) { atualFire = initialFire + (osFire  * -1); osFire_ = 0 }
         if (osSecurity < 0 ) { atualSecurity = initialSecurity + (osSecurity  * -1); osSecurity_ = 0 }
         if (osBolt < 0 ) { atualBolt = initialBolt + (osBolt  * -1); osBolt_ = 0 }
+
+        fckingScroll();
     }
 
 	$(window).resize(function() {
@@ -190,64 +208,69 @@ var obvious = 100 + mt;
 
     });
 
+    function fckingScroll()
+    {
+        if ($(this).scrollTop() > prh - mt) {
+            $('.services-menu').css('position', 'fixed').css('top', 15 + mt);
+        }
+        else{
+            $('.services-menu').css('position', 'absolute').css('top', 15);
+        }
+
+
+        var pos = $(window).scrollTop();
+        posConsulting = ( pos - consultingH) + mt + window_h + extraConsulting;
+        posFire = ( pos - consultingH) + mt + window_h +extraFire;
+        posSecurity = ( pos - fireH) + mt + window_h + extraSecurity;
+        posBolt = ( pos - securityH) + mt + window_h +extraBolt;
+
+        if(navigator.appVersion.indexOf("MSIE")==-1) { //se nao for ie
+
+            //altera o display da section de absolute para fixed, dependendo da posicao e do tamanho da section
+            if (posFire >= atualConsulting ) { $('#consulting').css({'position': 'fixed', 'top' : -osConsulting + mt}); }
+            else { $('#consulting').css({'position': 'absolute', 'top' : initialConsulting }); }
+
+            if (posSecurity >= atualFire ) { $('#fire').css({'position': 'fixed', 'top' : -osFire_}); }
+            else { $('#fire').css({'position': 'absolute', 'top' : initialFire - mt});  }
+
+            if (posBolt >= atualSecurity ) $('#security').css({'position': 'fixed', 'top' : -osSecurity_});
+            else $('#security').css({'position': 'absolute', 'top' : initialSecurity - mt});
+        }
+
+        //muda a img do link no menu
+        var middleheight = $(window).height()/2;
+        if ( pos < tops[1]) {
+            $('.menu-button').each(function(index, el) {
+                $(this).removeClass('actived');
+            });
+            $('#consulting-button').addClass("actived");}
+        else { $('#consulting-button').removeClass("actived"); }
+
+        if ( ( pos >= tops[1]-middleheight ) && ( pos < tops[2] ) ) {
+            $('.menu-button').each(function(index, el) {
+                $(this).removeClass('actived');
+            });
+            $('#fire-button').addClass("actived"); }
+        else { $('#fire-button').removeClass("actived");  }
+
+        if ( ( pos >= tops[2]-middleheight ) && ( pos < tops[3] ) ) {
+            $('.menu-button').each(function(index, el) {
+                $(this).removeClass('actived');
+            });
+            $('#security-button').addClass("actived"); }
+        else { $('#security-button').removeClass("actived"); }
+
+        if (pos >= tops[3]-middleheight) {
+            $('.menu-button').each(function(index, el) {
+                $(this).removeClass('actived');
+            });
+            $('#bolt-button').addClass("actived"); }
+        else { $('#bolt-button').removeClass("actived"); }
+    }
+
 	// funcoes durante o scroll
 	$(window).scroll(function(e){
-    if ($(this).scrollTop() > prh - mt) {
-      $('.services-menu').css('position', 'fixed').css('top', 15 + mt);
-    }
-    else{
-      $('.services-menu').css('position', 'absolute').css('top', 15);
-    }
-
-
-		var pos = $(window).scrollTop();
-		posConsulting = ( pos - consultingH) + mt + window_h + extraConsulting;
-		posFire = ( pos - consultingH) + mt + window_h +extraFire;
-		posSecurity = ( pos - fireH) + mt + window_h + extraSecurity;
-		posBolt = ( pos - securityH) + mt + window_h +extraBolt;
-
-		if(navigator.appVersion.indexOf("MSIE")==-1) { //se nao for ie
-
-			//altera o display da section de absolute para fixed, dependendo da posicao e do tamanho da section
-			if (posFire >= atualConsulting ) { $('#consulting').css({'position': 'fixed', 'top' : -osConsulting + mt}); }
-			else { $('#consulting').css({'position': 'absolute', 'top' : initialConsulting }); }
-
-			if (posSecurity >= atualFire ) { $('#fire').css({'position': 'fixed', 'top' : -osFire_}); }
-			else { $('#fire').css({'position': 'absolute', 'top' : initialFire - mt});  }
-
-			if (posBolt >= atualSecurity ) $('#security').css({'position': 'fixed', 'top' : -osSecurity_});
-			else $('#security').css({'position': 'absolute', 'top' : initialSecurity - mt});
-		}
-
-		//muda a img do link no menu
-    var middleheight = $(window).height()/2;
-		if ( pos < tops[1]) {
-      $('.menu-button').each(function(index, el) {
-          $(this).removeClass('actived');
-      });
-      $('#consulting-button').addClass("actived");}
-		else { $('#consulting-button').removeClass("actived"); }
-
-		if ( ( pos >= tops[1]-middleheight ) && ( pos < tops[2] ) ) {
-      $('.menu-button').each(function(index, el) {
-          $(this).removeClass('actived');
-      });
-      $('#fire-button').addClass("actived"); }
-		else { $('#fire-button').removeClass("actived");  }
-
-		if ( ( pos >= tops[2]-middleheight ) && ( pos < tops[3] ) ) {
-      $('.menu-button').each(function(index, el) {
-          $(this).removeClass('actived');
-      });
-      $('#security-button').addClass("actived"); }
-		else { $('#security-button').removeClass("actived"); }
-
-		if (pos >= tops[3]-middleheight) {
-      $('.menu-button').each(function(index, el) {
-          $(this).removeClass('actived');
-      });
-      $('#bolt-button').addClass("actived"); }
-		else { $('#bolt-button').removeClass("actived"); }
+	    fckingScroll();
 	});
 
 $('.menu-button').click(function(event) {
