@@ -1003,10 +1003,10 @@ body left 0 {
   width: 100%;
   float: left;
   padding-top: 80px;
-  position: absolute;
   background-color: #fff;
   display: table;
   cursor: pointer;
+  min-height: 100vh;
 }
 .services .service-item .row {
   -webkit-transition: all 250ms ease-in-out;
