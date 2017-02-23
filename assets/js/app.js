@@ -73,6 +73,24 @@ var extraBolt = 0;
         return servicesScroll();
     });
 
+    $(".dropdown").click( function() {
+        if( $(this).hasClass("actived") ) {
+
+            $(this).removeClass("actived");
+
+            return setTimeout(function() {
+                return servicesScroll();
+            }, 251);
+        }
+
+        $(".dropdown").removeClass("actived");
+        $(this).addClass("actived");
+
+        return setTimeout(function() {
+            return servicesScroll();
+        }, 251);
+    });
+
 
     function servicesScroll() {
         var consulting = $("#consulting");
