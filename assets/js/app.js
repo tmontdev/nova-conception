@@ -3,11 +3,14 @@ var extraFire = 0;
 var extraSecurity = 0;
 var extraBolt = 0;
 
+
+
 (function($){ //códígo home page e header
 
   if ($(window).width() <768) {//Programação para dispositivos mobile
     //variaveis
     var headerHeight = $('.mobile-header').height();
+
 
 
     $('.header-distance').css('margin-top', headerHeight+50);
@@ -46,6 +49,7 @@ var extraBolt = 0;
   }
 })(jQuery);
 (function($){//about page code
+
   var hmin = $(window).height() - $('.page-reference').height();
   $('.about-item').each(function(index, el) {
     $(this).css('min-height', hmin);
@@ -68,8 +72,61 @@ var extraBolt = 0;
 
 })(jQuery);
 
-(function($) {
-    $(window).scroll( function () {
+(function($) { // services page code
+  var consultingTop = $('#consulting').offset().top;
+  var fireTop = $('#fire').offset().top;
+  var securityTop = $('#security').offset().top;
+  var boltTop = $('#bolt').offset().top;
+
+   if ($(window).width() <768) {//Programação para dispositivos mobile
+    //variaveis
+    var headerHeight = $('.mobile-header').height() + 10;
+  }  else {// programação para desktops
+    var headerHeight = $('.header').height() - $('.header-menu').height() - 40;
+  }  
+
+      var distance = $('.page-reference').height() - 50;
+
+      $(window).scroll(function(){
+      if($(this).scrollTop() > distance){
+              $('.services-menu').css({
+                position: 'fixed',
+                top: headerHeight 
+              });
+      }else{
+              $('.services-menu').css({
+                position: 'absolute',
+                top: '15px' 
+              });
+      }
+      if ($(this).scrollTop() > $('.page-reference').height()) {
+        $('.menu-button').each(function(index, el) {
+          $(this).removeClass('actived');
+        });
+        $('.consulting-button').addClass('actived');
+      }
+      if ($(this).scrollTop() > $('.page-reference').height() + $('#consulting').height() - ( $(window).height()/2)) {
+        $('.menu-button').each(function(index, el) {
+          $(this).removeClass('actived');
+        });
+        $('.fire-button').addClass('actived');
+      }
+      if ($(this).scrollTop() > $('.page-reference').height() + $('#consulting').height() + $('#fire').height() - ( $(window).height()/2)) {
+        $('.menu-button').each(function(index, el) {
+          $(this).removeClass('actived');          
+        });
+        $('.security-button').addClass('actived');
+      }
+      if ($(this).scrollTop() > $('.page-reference').height() + $('#consulting').height() + $('#fire').height() + $('#security').height() - ( $(window).height()/2)) {
+        $('.menu-button').each(function(index, el) {
+          $(this).removeClass('actived');          
+        });
+        $('.bolt-button').addClass('actived');
+      }
+    });
+
+
+    $(window).scroll( function () { //chama a função Services Scroll
         return servicesScroll();
     });
 
@@ -90,6 +147,44 @@ var extraBolt = 0;
             return servicesScroll();
         }, 251);
     });
+    $(".menu-button").click(function() { // quando clica em um botão do menu
+            var diferenca
+        if ($(window).width() > 768) {
+          diferenca = $('.header-menu').height();
+        }
+        else{
+          diferenca = $('.mobile-header').height();
+        }
+        var dropHeight = 0;
+      $('.dropdown').each(function(index, el) { //remove atributo ativo de todos os dropdowns
+        
+        if ($(this).hasClass('actived')) {
+          dropHeight = $(this).find('.service-post-body').height() - 30;
+          $(this).removeClass('actived');
+
+        }
+      });
+
+        if ($(this).hasClass('consulting-button')) {
+           $('html, body').animate({scrollTop: consultingTop - diferenca - dropHeight}, 'slow');
+           dropHeight = 0;
+        }
+        if ($(this).hasClass('fire-button')) {
+           $('html, body').animate({scrollTop: fireTop - diferenca - dropHeight}, 'slow');
+           dropHeight = 0;
+        }
+        if ($(this).hasClass('security-button')) {
+           $('html, body').animate({scrollTop: securityTop - diferenca - dropHeight}, 'slow');
+           dropHeight = 0;
+        }
+        if ($(this).hasClass('bolt-button')) {
+           $('html, body').animate({scrollTop: boltTop - diferenca - dropHeight}, 'slow');
+           dropHeight = 0;
+        }
+
+
+    });
+
 
 
     function servicesScroll() {
