@@ -280,6 +280,7 @@ var extraBolt = 0;
          * É PARA CIMA
          */
 
+
         if(windowBottom <= boltTop) {
             security.css({
                 position: 'absolute',

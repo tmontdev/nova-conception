@@ -53,8 +53,8 @@ get_header();
 
     $posts['consulting'] = array_chunk($posts['consulting'], 2);
     $posts['fire'] = array_chunk($posts['fire'], 2);
-    $posts['security'] = array_chunk($posts['fire'], 2);
-    $posts['bolt'] = array_chunk($posts['fire'], 2);
+    $posts['security'] = array_chunk($posts['security'], 2);
+    $posts['bolt'] = array_chunk($posts['bolt'], 2);
 
     ?>
 
@@ -158,8 +158,9 @@ get_header();
               </div>
             </div>
           <?php }; ?>
-          </div>
-        <?php endforeach;  ?>      
+        </div>
+      <?php endforeach;  ?>      
+
         </div>
       </div>
     </div>
@@ -170,7 +171,7 @@ get_header();
       <div class="service-item-title whole-block">
         <h2 class="text-center mobile text-title text-blue">Eletricidade</h2>
       </div>
-            <?php foreach ($posts['fire'] as $chunk): ?>
+            <?php foreach ($posts['bolt'] as $chunk): ?>
       <div class="row no-padding">
             <?php foreach($chunk as $post){ ?>
             <div class="service-post-content col-xs-12 col-md-6 whole-block ">
@@ -199,6 +200,7 @@ get_header();
 
     </div>
   </div>
+  <div class="antibug"></div>
 
 </section>
 <?php get_footer(); ?>
