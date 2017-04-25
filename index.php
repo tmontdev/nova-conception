@@ -83,7 +83,7 @@
           <h4 class="text-subtitle"><span class="text-title text-green">Ultimas Notícias</span></h4>
         </div>
         <div class="news-square whole-block">
-          <div class="row">
+          <div class="row news-row">
               <?php foreach ($posts as $post): ?>
             <div class="post-field col-xs-12 col-md-4">
               <a href="<?php echo $post['link']; ?>" target="_blank">

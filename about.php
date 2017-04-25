@@ -15,7 +15,7 @@ $posts = array(
 );
 
 $args = array(
-  'post_type' => 'Sobre',
+  'post_type' => 'about',
     'posts_per_page' => 1
 );
 $query = new WP_Query( $args );
@@ -67,7 +67,8 @@ wp_reset_query();
         </div>
       </div>
     </div>
-  </div><?php endforeach;  ?>
+  </div>
+<?php endforeach;  ?>
   <div class="about-item hb-blue text-blue" id="mission">
     <div class="about-item-bg desktop"></div>
     <div class="container">

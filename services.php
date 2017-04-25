@@ -10,13 +10,13 @@ get_header();
     <div class="container">
       <div class="services-menu-content">
         <div class="consulting-button menu-button text-center border-green bg-white actived" id="consulting-button" data-target="#consulting">
-          <i class="fa fa-check-square-o text-green" aria-hidden="true"></i><span class="desktop"> Consultoria</span>
+          <i class="fa fa-users text-green" aria-hidden="true"></i><span class="desktop"> Consultoria</span>
         </div>
         <div class="fire-button menu-button text-center border-blue bg-white" id="fire-button" data-target="#fire">
           <i class="fa fa-fire-extinguisher text-blue" aria-hidden="true"></i><span class="desktop"> Combate à Incendio</span>
         </div>
         <div class="security-button menu-button text-center border-green bg-white" id="security-button" data-target="#security">
-          <i class="fa fa-lock text-green" aria-hidden="true"></i><span class="desktop"> Segurança no Trabalho</span>
+          <i class="fa fa-line-chart text-green" aria-hidden="true"></i><span class="desktop"> Segurança no Trabalho</span>
         </div>
         <div class="bolt-button menu-button text-center border-blue bg-white" id="bolt-button" data-target="#bolt">
           <i class="fa fa-bolt text-blue" aria-hidden="true"></i><span class="desktop"> Eletricidade</span>

@@ -1,0 +1,67 @@
+.search-bar
+	.container
+		.row
+			.text-search-field
+				margin 6px 0px
+				position relative
+				transition all 250ms 
+				input
+					font-family $font1
+					color #787878
+					padding 8px 90px 8px 15px
+					font-size 14px
+					border none
+					border-radius 3px
+				.send-button-field
+					position absolute
+					width 0px !important
+					opacity 1
+					top 0
+					height 100%
+					right 0
+					padding-top 2px
+					transition all 250ms ease-in-out					
+					button 
+						background-color transparent
+						border-left solid 1px #cecece
+						border-top none
+						border-right none
+						border-bottom none
+						margin 0
+						padding-left 5px
+						opacity 0 
+						width 100%	
+						transition all 250ms ease-in-out
+						z-index -100	
+						height 33px		
+						a 
+							color $green2
+							.button-text
+								font-family $font1
+								font-size 15px
+								opacity 0
+								transition all 500ms ease-in-out
+			.actived
+				input
+					border none
+					border-radius 0
+					&:focus
+						border none
+						border-radius 0px
+				.send-button-field
+					right 25px
+					width 80px !important
+					button 
+						opacity 1
+						a 
+							.button-text
+								opacity 1
+			.category-search-field
+				margin 5px 0px
+				position relative
+				select 
+					padding 5px 15px
+					background-color white
+					border none
+					border-radius none
+					font-family $font1 !important

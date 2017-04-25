@@ -4,6 +4,23 @@ var extraSecurity = 0;
 var extraBolt = 0;
 
 
+(function($){
+  $('.text-search').focus(function(event) {
+    $('.text-search-field').addClass('actived');
+  });
+  $('.search-bar').blur(function(event) {
+    $('.text-search-field').removeClass('actived');
+  });
+}(jQuery));
+
+(function($){ //selct 2 jQuery
+  $('#category-selection').select2({
+
+  placeholder: "Deseja pesquisar em quais categorias?",
+  allowClear: true
+  });
+})(jQuery);
+
 
 (function($){ //códígo home page e header
 
@@ -304,3 +321,4 @@ var extraBolt = 0;
         }
     }
 })(jQuery);
+
