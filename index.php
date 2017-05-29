@@ -60,8 +60,7 @@
     <?php
     $posts = array();
     $args = array(
-    	'category_name' => 'Home',
-    	'posts_per_page' => 3
+    	'category_name' => 'Home'
     );
     $query = new WP_Query( $args );
     while($query->have_posts()) {

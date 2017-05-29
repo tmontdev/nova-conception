@@ -17,7 +17,10 @@ get_header();
         <span class="whole-block text-justify text-grey">Basta preencher o nosso formulário. Você tambem pode no enviar um email pelo nosso endereço:</span>
         <a class="text-grey"href="mailto:contato@conceptionengenharia.com.br"><i class="fa fa-envelope-o" aria-hidden="true"></i> contato@conceptionengenharia.com.br </a>
       </div>
-      <?php echo do_shortcode('[contact-form-7 id="44" title="Contact form 1"]'); ?>
+      <div class="contact-form col-xs-12 col-md-8 right-side">
+          <?php echo do_shortcode('[contact-form-7 id="17" title="Formulário de Contato"]'); ?>
+      </div>
+
     </div>
     <div class="row avaliable">
       <div class="col-xs-12 col-md-4 left-side">
@@ -85,3 +88,6 @@ get_header();
   </div>
 </section>
 <?php get_footer(); ?>
+
+</div>
+

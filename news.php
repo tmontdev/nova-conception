@@ -87,7 +87,7 @@ get_header();
                     					<h6 class="text-title"><?php echo $post['title']; ?></h6>
                   				</div>
                 				</div>
-              			</a>
+              			       </a>
             			</div>
           			<?php endforeach;  wp_reset_query();?>
 		</div>
