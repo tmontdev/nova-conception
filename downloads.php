@@ -54,7 +54,7 @@ include(get_template_directory()."/page-reference.php"); ?>
                     $downloads->the_post();
                     ?>
                     <div class="post-field col-xs-12 col-md-4">
-                        <a href="<?php the_post('arquivo'); ?>" download>
+                        <a href="<?php the_field('arquivo'); ?>" download>
                             <div class="post-content bg-white whole-block">
                                 <div class="post-icon">
                                     <span class="fa fa-file-word-o text-center whole-block"></span>
@@ -64,7 +64,7 @@ include(get_template_directory()."/page-reference.php"); ?>
                                 </div>
                                 <div class="post-description">
                                     <i>
-                                        
+
                                     </i>
                                 </div>
                                 <div class="post-size"></div>
