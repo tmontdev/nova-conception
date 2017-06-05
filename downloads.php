@@ -52,9 +52,11 @@ include(get_template_directory()."/page-reference.php"); ?>
                 <?php
                 while ($downloads->have_posts()):
                     $downloads->the_post();
+
+                    $file = get_field('arquivo');
                     ?>
                     <div class="post-field col-xs-12 col-md-4">
-                        <a href="#" target="_blank">
+                        <a href="<?php $file->url; ?>" download>
                             <div class="post-content bg-white whole-block">
                                 <div class="post-icon">
                                     <span class="fa fa-file-word-o text-center whole-block"></span>
@@ -64,10 +66,10 @@ include(get_template_directory()."/page-reference.php"); ?>
                                 </div>
                                 <div class="post-description">
                                     <i>
-                                        <?php var_dump(get_field('arquivo')); ?>
+                                        <?php $file->description; ?>
                                     </i>
                                 </div>
-                                <div class="post-size">1.785Kb</div>
+                                <div class="post-size"><?php filesize( get_attached_file( $file->ID ) ); ?></div>
                                 <div class="post-button"><span class="fa fa-download"> <span class="button-text">Download</span></div>
                             </div>
                         </a>
