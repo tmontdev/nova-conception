@@ -64,7 +64,7 @@ include(get_template_directory()."/page-reference.php"); ?>
                                 </div>
                                 <div class="post-description">
                                     <i>
-                                        <?php the_field('arquivo'); ?>
+                                        <?php var_dump(get_the_field('arquivo')); ?>
                                     </i>
                                 </div>
                                 <div class="post-size">1.785Kb</div>
