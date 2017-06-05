@@ -64,10 +64,9 @@ include(get_template_directory()."/page-reference.php"); ?>
                                 </div>
                                 <div class="post-description">
                                     <i>
-
                                     </i>
                                 </div>
-                                <div class="post-size"></div>
+                                <div class="post-size"><?php filesize(get_the_field('arquivo')); ?></div>
                                 <div class="post-button"><span class="fa fa-download"> <span class="button-text">Download</span></div>
                             </div>
                         </a>
