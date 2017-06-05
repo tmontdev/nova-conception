@@ -86,11 +86,10 @@ class DownloadsPT
 		$html .= '</th>';
 		$html .= '<td>';
 		$html .= '<select id="information-type" name="information-type">';
-		$html .= '<option value="company" '.($value === 'company' ? 'selected' : null).'>A empresa</option>';
-		$html .= '<option value="mission" '.($value === 'mission' ? 'selected' : null).'>Missão</option>';
-		$html .= '<option value="vision" '.($value === 'vision' ? 'selected' : null).'>Visão</option>';
-    $html .= '<option value="values" '.($value === 'values' ? 'selected' : null).'>Valores</option>';
-		$html .= '<option value="partners" '.($value === 'partners' ? 'selected' : null).'>Parceiros/Clientes</option>';
+		$html .= '<option value="consulting" '.($value === 'consulting' ? 'selected' : null).'>Consultoria</option>';
+		$html .= '<option value="fire" '.($value === 'fire' ? 'selected' : null).'>Projetos Complementares</option>';
+		$html .= '<option value="security" '.($value === 'security' ? 'selected' : null).'>Execução de Obras</option>';
+    		$html .= '<option value="bolt" '.($value === 'bolt' ? 'selected' : null).'>Segurança do Trabalho</option>';
 		$html .= '</select>';
 		$html .= '</td>';
 		$html .= '</tr>';

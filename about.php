@@ -4,7 +4,9 @@
 */
 get_header();
 ?>
-<?php include(get_template_directory()."/page-reference.php"); ?>
+<?php 
+$imgPage = do_shortcode('[easy_options id="AboutBanner"]');
+include(get_template_directory()."/page-reference.php"); ?>
 <?php
 $posts = array(
     'company' => array(),
@@ -15,7 +17,7 @@ $posts = array(
 );
 
 $args = array(
-  'post_type' => 'About',
+  'post_type' => 'Sobre',
     'posts_per_page' => 1
 );
 $query = new WP_Query( $args );

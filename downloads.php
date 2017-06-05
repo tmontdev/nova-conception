@@ -4,7 +4,9 @@
 */
 get_header();
 ?>
-<?php include(get_template_directory()."/page-reference.php"); ?>
+<?php 
+$imgPage = do_shortcode('[easy_options id="DownloadsBanner"]');
+include(get_template_directory()."/page-reference.php"); ?>
 
 <section class="search-bar whole-block bg-green">
 	<div class="container">

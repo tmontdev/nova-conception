@@ -4,7 +4,9 @@
 */
 get_header();
 ?>
-<?php include(get_template_directory()."/page-reference.php"); ?>
+<?php 
+$imgPage = do_shortcode('[easy_options id="NewsBanner"]');
+include(get_template_directory()."/page-reference.php"); ?>
 
 <section class="search-bar whole-block bg-green">
 	<div class="container">
@@ -33,8 +35,7 @@ get_header();
     <?php
     $posts = array();
     $args = array(
-    	'category_name' => 'Home',
-    	'posts_per_page' => 3
+    	'category_name' => 'Home'
     );
     $query = new WP_Query( $args );
     while($query->have_posts()) {

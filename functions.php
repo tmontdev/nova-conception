@@ -10,6 +10,9 @@ function scripts_register_conception(){
 add_action('wp_enqueue_scripts', 'scripts_register_conception');
 show_admin_bar(false);
 
+
+
+
 function wpdocs_custom_excerpt_length( $length ) {
     return 20;
 }
@@ -34,3 +37,4 @@ function partition( $list, $p ) {
 	}
 	return $partition;
 }
+?>

@@ -6,7 +6,7 @@
       $post = $wp_query->get_queried_object();
       $pagename = $post->post_name;
     } ?>
-  <div class="pr-bg" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/5.jpg');"></div>
+  <div class="pr-bg" style="background-image: url('<?php echo $imgPage; ?>');"></div>
   <div class="pr-line">
     <div class="container">
         <a href="<?php echo get_option('home'); ?>" class="home-icon text-green fa fa-home" aria-hidden="true"></a>
@@ -14,3 +14,5 @@
     </div>
   </div>
 </section>
+
+

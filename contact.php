@@ -4,7 +4,9 @@
 */
 get_header();
 ?>
-<?php include(get_template_directory()."/page-reference.php"); ?>
+<?php 
+$imgPage = do_shortcode('[easy_options id="ContactBanner"]');
+include(get_template_directory()."/page-reference.php"); ?>
 <section class="contact">
   <div class="container">
     <div class="contact-presentation whole-block">

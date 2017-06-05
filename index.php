@@ -1,13 +1,15 @@
 <?php get_header(); ?>
-<section class="welcome">
+<section class="welcome" style="background-image: url('<?php echo do_shortcode('[easy_options id="HomePicture"]' ); ?>');">
+  
+</style>>
   <div class="overlay">
     <div class="container">
       <div class="row">
         <div class=" desktop col-md-4"></div>
         <div class="col-xs-12 col-sm-12 col-md-8 greetings header-distance">
-          <h4 class="col-xs-12 col-sm-12 text-white">Bem-vindo à</h4>
-          <h2 class="text-title col-xs-12 col-sm-12 text-white">Conception Engenharia</h2>
-          <span class="text-white col-xs-12 col-sm-12">Fique a vontade para navegar pelo nosso site e obter informações, noticias e conhecimento.</span>
+          <h4 class="col-xs-12 col-sm-12 text-white"><?php echo do_shortcode('[easy_options id="HomeWelcome"]'); ?></h4>
+          <h2 class="text-title col-xs-12 col-sm-12 text-white"><?php  echo do_shortcode('[easy_options id="HomeFeatured"]' );; ?></h2>
+          <span class="text-white col-xs-12 col-sm-12"><?php echo do_shortcode('[easy_options id="HomeDescription"]'); ?></span>
         </div>
       </div>
       <div class="row">
@@ -15,7 +17,7 @@
         <div class="col-xs-12 col-sm-12 col-md-8 index">
           <a class="col-xs-12 col-sm-12 col-md-6 text-white" href="<?php echo get_permalink(get_page_by_path('sobre')); ?>">
             <div class="text-center col-xs-12 col-sm-12 bg-a-green  large-border-green link-description">
-              <span>Aqui você pode conhecer mais sobre a Conception, sobre a nossa missão, e saber das novidades na área da engenharia.</span>
+              <span><?php echo do_shortcode('[easy_options id="HomeToAbout"]' ); ?></span>
             </div>
             <div class="col-xs-12 col-sm-12 bg-green text-center link-name">
               <i class="fa fa-info-circle" aria-hidden="true"></i> <span>Saiba Mais</span>
@@ -36,7 +38,7 @@
         <div class="col-xs-12 col-sm-12 col-md-8 index">
           <a class="col-xs-12 col-sm-12 col-md-6 text-white" href="<?php echo get_permalink(get_page_by_path('sobre')); ?>">
             <div class="text-center col-xs-12 col-sm-12 bg-a-green  large-border-green link-description">
-              <span>Nós estamos sempre antenados no mundo da engenharia, portanto, criamos um feed completo, cheio de dicas e notícias para você</span>
+              <span><?php echo do_shortcode('[easy_options id="HomeToNews"]'); ?></span>
             </div>
             <div class="col-xs-12 col-sm-12 bg-green text-center link-name">
               <i class="fa fa-newspaper-o" aria-hidden="true"></i></i> <span>Notícias</span>
@@ -44,7 +46,7 @@
           </a>
           <a class="col-xs-12 col-sm-12 col-md-6 text-white" href="<?php echo get_permalink(get_page_by_path('sobre')); ?>">
             <div class="text-center col-xs-12 col-sm-12 bg-a-blue  large-border-blue link-description">
-              <span>A Conception Engenharia é especialista em uma variedade de serviços para atender a qualquer necessidade. Confira nossos serviços</span>
+              <span><?php echo do_shortcode('[easy_options id="HomeToServices"]'); ?></span>
             </div>
             <div class="col-xs-12 col-sm-12 bg-blue text-center link-name">
               <i class="fa fa-cog" aria-hidden="true"></i></i> <span>Serviços</span>
@@ -120,5 +122,6 @@
       </div>
     </div>
   </div>
+  <?php do_shortcode('[easy_options id="services-banner"]'); ?>
 </section>
  <?php get_footer(); ?>
