@@ -53,7 +53,7 @@ include(get_template_directory()."/page-reference.php"); ?>
                 while ($downloads->have_posts()):
                     $downloads->the_post();
 
-                    $fileDownload = get_field('arquivo');
+                    $fileDownload = get_field('arquivo', get_the_ID());
                     ?>
                     <div class="post-field col-xs-12 col-md-4">
                         <a href="<?php echo $fileDownload['url']; ?>" download>
