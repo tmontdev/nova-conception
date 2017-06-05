@@ -3,6 +3,11 @@
  * Template name: downloads
 */
 get_header();
+
+$downloads = new WP_Query([
+    'post_type' => 'download',
+    'posts_per_page' => '-1'
+]);
 ?>
 <?php 
 $imgPage = do_shortcode('[easy_options id="DownloadsBanner"]');
@@ -44,24 +49,34 @@ include(get_template_directory()."/page-reference.php"); ?>
 		</div>
 		<div class="whole-block downloads-square">
 			<div class="row downloads-row">
-	            			<div class="post-field col-xs-12 col-md-4">
-	              			<a href="#" target="_blank">
-	              				<div class="post-content bg-white whole-block">
-	              					<div class="post-icon">
-	              						<span class="fa fa-file-word-o text-center whole-block"></span>
-	              					</div>
-	              					<div class="post-title">
-	              						<h6 class="text-title">Título da Postagem Maior</h6>
-	              					</div>
-	              					<div class="post-description">
-	              						<i>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum saepe earum mollitia vero est ullam, placeat eum rem deleniti sit quidem dolore.</i>
-	              					</div>
-	              					<div class="post-size">1.785Kb</div>
-	              					<div class="post-button"><span class="fa fa-download"> <span class="button-text">Download</span></div>
-	              				</div>
-	              			</a>
-	            			</div>
-	            			<div class="post-field col-xs-12 col-md-4">
+                <?php
+                while ($downloads->have_posts()):
+                    $downloads->the_post();
+                    ?>
+                    <div class="post-field col-xs-12 col-md-4">
+                        <a href="#" target="_blank">
+                            <div class="post-content bg-white whole-block">
+                                <div class="post-icon">
+                                    <span class="fa fa-file-word-o text-center whole-block"></span>
+                                </div>
+                                <div class="post-title">
+                                    <h6 class="text-title"><?php the_title(); ?></h6>
+                                </div>
+                                <div class="post-description">
+                                    <i>
+                                        <?php the_field('arquivo'); ?>
+                                    </i>
+                                </div>
+                                <div class="post-size">1.785Kb</div>
+                                <div class="post-button"><span class="fa fa-download"> <span class="button-text">Download</span></div>
+                            </div>
+                        </a>
+                    </div>
+                    <?php
+                endwhile;
+                ?>
+
+                        <div class="post-field col-xs-12 col-md-4">
 	              			<a href="#" target="_blank">
 	              				<div class="post-content bg-white whole-block">
 	              					<div class="post-icon">
