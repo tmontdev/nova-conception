@@ -28,6 +28,8 @@ while ($downloads->have_posts()){
         'file' => get_field('arquivo')
     ];
 }
+
+$downloadsPosts = array_chunk($downloadPosts, 3);
 ?>
 <?php 
 $imgPage = do_shortcode('[easy_options id="DownloadsBanner"]');
@@ -75,33 +77,39 @@ include(get_template_directory()."/page-reference.php"); ?>
 			<h4 class="text-subtitle">Todas as Categorias: <span>Consultoria</span> <span>Combate ao Incendio</span> <span>Segurança no Trabalho</span> <span>Eletricidade</span></h4>
 		</div>
 		<div class="whole-block downloads-square">
-			<div class="row downloads-row">
-                <?php
-                foreach($downloadPosts as $downloadPost) {
-                    ?>
-                    <div class="post-field col-xs-12 col-md-4">
-                        <a href="<?php echo $downloadPost['file']; ?>" download>
-                            <div class="post-content bg-white whole-block">
-                                <div class="post-icon">
-                                    <span class="fa fa-file-word-o text-center whole-block"></span>
-                                </div>
-                                <div class="post-title">
-                                    <h6 class="text-title"><?php echo $downloadPost['title']?></h6>
-                                </div>
-                                <div class="post-description">
-                                    <i><?php echo $downloadPost['description']; ?></i>
-                                </div>
-                                <div class="post-size"><?php echo $downloadPost['size']; ?></div>
-                                <div class="post-button"><span class="fa fa-download"> <span class="button-text">Download</span>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <?php
-                }
+            <?php
+            foreach($downloadsPosts as $chunk) {
                 ?>
+                <div class="row downloads-row">
+                    <?php
+                    foreach ($chunk as $downloadPost) {
+                        ?>
+                        <div class="post-field col-xs-12 col-md-4">
+                            <a href="<?php echo $downloadPost['file']; ?>" download>
+                                <div class="post-content bg-white whole-block">
+                                    <div class="post-icon">
+                                        <span class="fa fa-file-word-o text-center whole-block"></span>
+                                    </div>
+                                    <div class="post-title">
+                                        <h6 class="text-title"><?php echo $downloadPost['title'] ?></h6>
+                                    </div>
+                                    <div class="post-description">
+                                        <i><?php echo $downloadPost['description']; ?></i>
+                                    </div>
+                                    <div class="post-size"><?php echo $downloadPost['size']; ?></div>
+                                    <div class="post-button"><span class="fa fa-download"> <span class="button-text">Download</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <?php
+                    }
+                    ?>
 
-            		</div>
+                </div>
+                <?php
+            }
+            ?>
             	</div>
  
 	
