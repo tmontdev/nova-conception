@@ -34,7 +34,7 @@ while ($downloads->have_posts()){
             $downloadPosts[] = [
                 'title' => get_the_title(),
                 'description' => get_the_content(),
-                'size' => filesize(get_field('arquivo')),
+                'size' => null,
                 'file' => get_field('arquivo')
             ];
         }
@@ -45,7 +45,7 @@ while ($downloads->have_posts()){
     $downloadPosts[] = [
         'title' => get_the_title(),
         'description' => get_the_content(),
-        'size' => getSize(get_field('arquivo')),
+        'size' => null,
         'file' => get_field('arquivo')
     ];
 }
