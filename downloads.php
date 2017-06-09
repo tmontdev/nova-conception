@@ -15,20 +15,6 @@ if ($search) {
     $args['s'] = $search;
 }
 
-function retrieve_remote_file_size($url){
-    $ch = curl_init($url);
-
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-    curl_setopt($ch, CURLOPT_HEADER, TRUE);
-    curl_setopt($ch, CURLOPT_NOBODY, TRUE);
-
-    $data = curl_exec($ch);
-    $size = curl_getinfo($ch, CURLINFO_CONTENT_LENGTH_DOWNLOAD);
-
-    curl_close($ch);
-    return $size;
-}
-
 $downloads = new WP_Query($args);
 
 $downloadPosts = [];
@@ -48,7 +34,7 @@ while ($downloads->have_posts()){
             $downloadPosts[] = [
                 'title' => get_the_title(),
                 'description' => get_the_content(),
-                'size' => retrieve_remote_file_size(get_field('arquivo')),
+                'size' => filesize(get_field('arquivo')),
                 'file' => get_field('arquivo')
             ];
         }
