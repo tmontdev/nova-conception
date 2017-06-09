@@ -21,6 +21,27 @@ $downloadPosts = [];
 while ($downloads->have_posts()){
     $downloads->the_post();
 
+    $categorySearch = isset($_GET['sCategory']) ? trim($_GET['sCategory']) : null;
+
+    if ($categorySearch) {
+        $type = get_post_meta(get_the_ID(), 'information-type', true);
+
+        if (! is_array($categorySearch)) {
+            $categorySearch = [$categorySearch];
+        }
+
+        if (in_array($type, $categorySearch)) {
+            $downloadPosts[] = [
+                'title' => get_the_title(),
+                'description' => get_the_content(),
+                'size' => filesize(get_field('arquivo')),
+                'file' => get_field('arquivo')
+            ];
+        }
+
+        continue;
+    }
+
     $downloadPosts[] = [
         'title' => get_the_title(),
         'description' => get_the_content(),
@@ -55,11 +76,11 @@ include(get_template_directory()."/page-reference.php"); ?>
                     </div>
                 </div>
                 <div class="category-search-field col-xs-12 col-md-6">
-                    <select name="category-selection" class="whole-block" multiple="multiple" id="category-selection">
-                        <option value="Consultoria">Consultoria</option>
-                        <option value="Combate ao Incendio"> Combate ao Incendio</option>
-                        <option value="Segurança do Trabalho">Segurança do Trabalho</option>
-                        <option value="Eletricidade">Eletricidade</option>
+                    <select name="sCategory" class="whole-block" multiple="multiple" id="category-selection">
+                        <option value="consulting">Consultoria</option>
+                        <option value="fire"> Combate ao Incendio</option>
+                        <option value="security">Segurança do Trabalho</option>
+                        <option value="bolt">Eletricidade</option>
                     </select>
                 </div>
             </div>
