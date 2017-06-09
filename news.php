@@ -75,42 +75,40 @@ include(get_template_directory()."/page-reference.php"); ?>
 		</div>
 		<div class="whole-block news-square">
             <?php foreach($posts as $chunk){ ?>
-			<div class="row news-row">
-              		<?php foreach ($posts as $post): ?>
-            			<div class="post-field col-xs-12 col-md-4">
-              			<a href="<?php echo $post['link']; ?>" target="_blank">
-                				<div class="post-content bg-white col-xs-12">
-                  					<div class="post-thumb whole-block" style="background-image: url('<?php echo $post['thumb']; ?>'); height: 200px;">
-                    						<div class="post-when col-xs-4 col-md-3">
-                      							<div class="post-date text-center bg-white whole-block">
-                        								<div class="whole-block post-day text-center text-green">
-                          									<?php echo $post['day']; ?>
-                        								</div>
-                        							<div class=" whole-block post-month text-center text-blue">
-                          								<?php echo $post['month']; ?>
-                        							</div>
-                        							<div class="whole-block post-year text-grey text-center">
-                          								<?php echo $post['year']; ?>
-                        							</div>
-                      							</div>
-                    						</div>
-                    					<div class="text-excerpt">
-                      					<?php echo $post['description']; ?>
-                    					</div>
-                    					<div class="post-entry text-center">
-                      						Entrar
-                    					</div>
-                  					</div>
-                  				<div class="post-title  whole-block">
-                    					<h6 class="text-title"><?php echo $post['title']; ?></h6>
-                  				</div>
-                				</div>
-              			       </a>
-            			</div>
-          			<?php endforeach;  wp_reset_query();?>
-            </div>
-		</div>
-        <?php } ?>
+                <div class="row news-row">
+                    <?php foreach ($chunk as $post): ?>
+                        <div class="post-field col-xs-12 col-md-4">
+                            <a href="<?php echo $post['link']; ?>" target="_blank">
+                                <div class="post-content bg-white col-xs-12">
+                                    <div class="post-thumb whole-block" style="background-image: url('<?php echo $post['thumb']; ?>'); height: 200px;">
+                                        <div class="post-when col-xs-4 col-md-3">
+                                            <div class="post-date text-center bg-white whole-block">
+                                                <div class="whole-block post-day text-center text-green">
+                                                    <?php echo $post['day']; ?>
+                                                </div>
+                                                <div class=" whole-block post-month text-center text-blue">
+                                                    <?php echo $post['month']; ?>
+                                                </div>
+                                                <div class="whole-block post-year text-grey text-center">
+                                                    <?php echo $post['year']; ?>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="text-excerpt">
+                                            <?php echo $post['description']; ?>
+                                        </div>
+                                        <div class="post-entry text-center">Entrar</div>
+                                    </div>
+                                    <div class="post-title  whole-block">
+                                        <h6 class="text-title"><?php echo $post['title']; ?></h6>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    <?php endforeach;  wp_reset_query();?>
+                </div>
+            <?php } ?>
+        </div>
 	</div>
 </section>
 
