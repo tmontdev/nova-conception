@@ -9,7 +9,7 @@ $args = [
     'posts_per_page' => '-1'
 ];
 
-$search = isset($_GET['s']) ? trim($_GET['s']) : null;
+$search = isset($_POST['s']) ? trim($_POST['s']) : null;
 
 function getSize($file)
 {
@@ -29,7 +29,7 @@ $downloadPosts = [];
 while ($downloads->have_posts()){
     $downloads->the_post();
 
-    $categorySearch = isset($_GET['sCategory']) ? trim($_GET['sCategory']) : null;
+    $categorySearch = isset($_POST['sCategory']) ? trim($_POST['sCategory']) : null;
 
     if ($categorySearch) {
         $type = get_post_meta(get_the_ID(), 'information-type', true);
