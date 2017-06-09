@@ -35,6 +35,7 @@ include(get_template_directory()."/page-reference.php"); ?>
     <?php
     $posts = array();
     $args = array(
+        'post_type' => 'post',
     	'category_name' => 'Home'
     );
     $query = new WP_Query( $args );
