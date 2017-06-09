@@ -44,12 +44,14 @@ include(get_template_directory()."/page-reference.php"); ?>
     		'title' => get_the_title(),
     		'description' => get_the_excerpt(),
     		'day' => get_the_date('d'),
-        'month' => get_the_date('m'),
-        'year' => get_the_date('Y'),
-        'link' => get_permalink(),
-        'thumb' => get_the_post_thumbnail_url(),
+            'month' => get_the_date('m'),
+            'year' => get_the_date('Y'),
+            'link' => get_permalink(),
+            'thumb' => get_the_post_thumbnail_url(),
     	);
     }
+
+    $posts = array_chunk($posts, 3);
     ?>
 <section id="news" class="news whole-block">
 	<div class="container">
@@ -58,7 +60,8 @@ include(get_template_directory()."/page-reference.php"); ?>
 			<h4 class="text-subtitle">Todas as Categorias: <span>Consultoria</span> <span>Combate ao Incendio</span> <span>Segurança no Trabalho</span> <span>Eletricidade</span></h4>
 		</div>
 		<div class="whole-block news-square">
-			<div class="row news-row"></div>
+            <?php foreach($posts as $chunk){ ?>
+			<div class="row news-row">
               		<?php foreach ($posts as $post): ?>
             			<div class="post-field col-xs-12 col-md-4">
               			<a href="<?php echo $post['link']; ?>" target="_blank">
@@ -91,7 +94,9 @@ include(get_template_directory()."/page-reference.php"); ?>
               			       </a>
             			</div>
           			<?php endforeach;  wp_reset_query();?>
+            </div>
 		</div>
+        <?php } ?>
 	</div>
 </section>
 
