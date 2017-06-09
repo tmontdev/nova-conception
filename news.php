@@ -10,26 +10,33 @@ include(get_template_directory()."/page-reference.php"); ?>
 
 <section class="search-bar whole-block bg-green">
 	<div class="container">
-		<div class="row">
-			<div class="text-search-field col-xs-12 col-md-6">
-				<input type="text" class="whole-block text-search" placeholder="Digite o que deseja Pesquisar!">
-				<div class="send-button-field">
-					<button>
-						<a href="#" class="send-button">
-							<span class="fa fa-search"><span class="button-text">Pesquisar</span></span>
-						</a>
-					</button>
-				</div>
-			</div>
-			<div class="category-search-field col-xs-12 col-md-6">
-				<select name="category-selection" class="whole-block" multiple="multiple" id="category-selection">
-					<option value="Consultoria">Consultoria</option>
-					<option value="Combate ao Incendio"> Combate ao Incedio</option>
-					<option value="Segurança do Trabalho">Segurança do Trabalho</option>
-					<option value="Eletricidade">Eletricidade</option>
-				</select>
-			</div>
-		</div>
+        <form action="<?php
+        global $wp;
+        $current_url = home_url(add_query_arg(array(),$wp->request));
+
+        echo $current_url
+        ?>" method="post">
+            <div class="row">
+                <div class="text-search-field col-xs-12 col-md-6">
+                    <input type="text" name="s" class="whole-block text-search" placeholder="Digite o que deseja Pesquisar!">
+                    <div class="send-button-field">
+                        <button>
+                            <a href="#" class="send-button">
+                                <span class="fa fa-search"><span class="button-text">Pesquisar</span></span>
+                            </a>
+                        </button>
+                    </div>
+                </div>
+                <div class="category-search-field col-xs-12 col-md-6">
+                    <select name="category-selection" name="sCategory" class="whole-block" multiple="multiple" id="category-selection">
+                        <option value="consulting">Consultoria</option>
+                        <option value="fire"> Combate ao Incedio</option>
+                        <option value="security">Segurança do Trabalho</option>
+                        <option value="bolt">Eletricidade</option>
+                    </select>
+                </div>
+            </div>
+        </form>
 	</div>
 </section>
     <?php
@@ -38,6 +45,12 @@ include(get_template_directory()."/page-reference.php"); ?>
         'post_type' => 'post',
     	'category_name' => 'Home'
     );
+
+    $search = isset($_POST['s']) ? trim($_POST['s']) : null;
+    if ($search) {
+        $args['s'] = $search;
+    }
+
     $query = new WP_Query( $args );
     while($query->have_posts()) {
     	$query->the_post();
