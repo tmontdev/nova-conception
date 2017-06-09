@@ -11,6 +11,14 @@ $args = [
 
 $search = isset($_GET['s']) ? trim($_GET['s']) : null;
 
+function getSize($file)
+{
+    $bytes = filesize($file);
+    $s = array('b', 'Kb', 'Mb', 'Gb');
+    $e = floor(log($bytes)/log(1024));
+    return sprintf('%.2f '.$s[$e], ($bytes/pow(1024, floor($e))));
+}
+
 if ($search) {
     $args['s'] = $search;
 }
@@ -34,7 +42,7 @@ while ($downloads->have_posts()){
             $downloadPosts[] = [
                 'title' => get_the_title(),
                 'description' => get_the_content(),
-                'size' => filesize(get_field('arquivo')),
+                'size' => getSize(get_field('arquivo')),
                 'file' => get_field('arquivo')
             ];
         }
@@ -45,7 +53,7 @@ while ($downloads->have_posts()){
     $downloadPosts[] = [
         'title' => get_the_title(),
         'description' => get_the_content(),
-        'size' => filesize(get_field('arquivo')),
+        'size' => getSize(get_field('arquivo')),
         'file' => get_field('arquivo')
     ];
 }
