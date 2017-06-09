@@ -9,7 +9,7 @@ $args = [
     'posts_per_page' => '-1'
 ];
 
-$search = isset($_POST['s']) ? trim($_POST['s']) : null;
+$search = isset($_POST['sField']) ? trim($_POST['sField']) : null;
 
 if ($search) {
     $args['s'] = $search;
@@ -66,7 +66,7 @@ include(get_template_directory()."/page-reference.php"); ?>
         ?>" method="post">
             <div class="row">
                 <div class="text-search-field col-xs-12 col-md-6">
-                    <input type="text" name="s" class="whole-block text-search" placeholder="Digite o que deseja Pesquisar!">
+                    <input type="text" name="sField" class="whole-block text-search" placeholder="Digite o que deseja Pesquisar!">
                     <div class="send-button-field">
                         <button>
                             <a href="#" class="send-button">
