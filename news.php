@@ -10,15 +10,10 @@ include(get_template_directory()."/page-reference.php"); ?>
 
 <section class="search-bar whole-block bg-green">
 	<div class="container">
-        <form action="<?php
-        global $wp;
-        $current_url = home_url(add_query_arg(array(),$wp->request));
-
-        echo $current_url
-        ?>" method="post">
+        <form  method="get">
             <div class="row">
                 <div class="text-search-field col-xs-12 col-md-6">
-                    <input type="text" name="s" class="whole-block text-search" placeholder="Digite o que deseja Pesquisar!">
+                    <input type="text" name="searchField" class="whole-block text-search" placeholder="Digite o que deseja Pesquisar!">
                     <div class="send-button-field">
                         <button>
                             <a href="#" class="send-button">
@@ -28,11 +23,13 @@ include(get_template_directory()."/page-reference.php"); ?>
                     </div>
                 </div>
                 <div class="category-search-field col-xs-12 col-md-6">
-                    <select name="category-selection" name="sCategory" class="whole-block" multiple="multiple" id="category-selection">
-                        <option value="consulting">Consultoria</option>
-                        <option value="fire"> Combate ao Incedio</option>
-                        <option value="security">Segurança do Trabalho</option>
-                        <option value="bolt">Eletricidade</option>
+                    <?php
+                    $listCategories = get_categories();
+                    ?>
+                    <select name="searchCategory[]" class="whole-block" multiple="multiple" id="category-selection">
+                        <?php foreach($listCategories as $category): ?>
+                            <option value="<?php echo $category->cat_ID; ?>"><?php echo $category->cat_name; ?></option>
+                        <?php endforeach; ?>
                     </select>
                 </div>
             </div>
@@ -46,12 +43,19 @@ include(get_template_directory()."/page-reference.php"); ?>
     	'category_name' => 'Home'
     );
 
-    $search = isset($_POST['s']) ? trim($_POST['s']) : null;
+    $search = isset($_GET['searchField']) ? trim($_GET['searchField']) : null;
+    $categories = isset($_GET['searchCategory']) ? ($_GET['searchCategory']) : array();
+
+    if (is_array($categories) && count($categories) > 0) {
+        $args['cat'] = implode(',', $categories);
+    }
+
     if ($search) {
         $args['s'] = $search;
     }
 
     $query = new WP_Query( $args );
+
     while($query->have_posts()) {
     	$query->the_post();
     	$posts[] = array(
