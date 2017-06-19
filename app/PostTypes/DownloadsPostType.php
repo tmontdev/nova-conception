@@ -87,9 +87,9 @@ class DownloadsPT
 		$html .= '<td>';
 		$html .= '<select id="information-type" name="information-type">';
 		$html .= '<option value="consulting" '.($value === 'consulting' ? 'selected' : null).'>Consultoria</option>';
-		$html .= '<option value="fire" '.($value === 'fire' ? 'selected' : null).'>Projetos Complementares</option>';
-		$html .= '<option value="security" '.($value === 'security' ? 'selected' : null).'>Execução de Obras</option>';
-    		$html .= '<option value="bolt" '.($value === 'bolt' ? 'selected' : null).'>Segurança do Trabalho</option>';
+		$html .= '<option value="fire" '.($value === 'additional' ? 'selected' : null).'>Projetos Complementares</option>';
+		$html .= '<option value="security" '.($value === 'building' ? 'selected' : null).'>Execução de Obras</option>';
+    $html .= '<option value="bolt" '.($value === 'security' ? 'selected' : null).'>Segurança do Trabalho</option>';
 		$html .= '</select>';
 		$html .= '</td>';
 		$html .= '</tr>';

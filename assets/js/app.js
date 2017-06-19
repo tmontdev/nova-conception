@@ -23,7 +23,9 @@ var extraBolt = 0;
 
 
 (function($){ //códígo home page e header
-
+  $('.adv-close').click(function(event) {
+    $('.adv').removeClass('actived');
+  });
   if ($(window).width() <768) {//Programação para dispositivos mobile
     //variaveis
     var headerHeight = $('.mobile-header').height();
@@ -65,6 +67,7 @@ var extraBolt = 0;
     });
   }
 })(jQuery);
+
 (function($){//about page code
 
   var hmin = $(window).height() - $('.page-reference').height();
@@ -100,7 +103,7 @@ var extraBolt = 0;
     var headerHeight = $('.mobile-header').height() + 10;
   }  else {// programação para desktops
     var headerHeight = $('.header').height() - $('.header-menu').height() - 40;
-  }  
+  }
 
       var distance = $('.page-reference').height() - 50;
 
@@ -108,12 +111,12 @@ var extraBolt = 0;
       if($(this).scrollTop() > distance){
               $('.services-menu').css({
                 position: 'fixed',
-                top: headerHeight 
+                top: headerHeight
               });
       }else{
               $('.services-menu').css({
                 position: 'absolute',
-                top: '15px' 
+                top: '15px'
               });
       }
       if ($(this).scrollTop() > $('.page-reference').height()) {
@@ -130,13 +133,13 @@ var extraBolt = 0;
       }
       if ($(this).scrollTop() > $('.page-reference').height() + $('#consulting').height() + $('#fire').height() - ( $(window).height()/2)) {
         $('.menu-button').each(function(index, el) {
-          $(this).removeClass('actived');          
+          $(this).removeClass('actived');
         });
         $('.security-button').addClass('actived');
       }
       if ($(this).scrollTop() > $('.page-reference').height() + $('#consulting').height() + $('#fire').height() + $('#security').height() - ( $(window).height()/2)) {
         $('.menu-button').each(function(index, el) {
-          $(this).removeClass('actived');          
+          $(this).removeClass('actived');
         });
         $('.bolt-button').addClass('actived');
       }
@@ -174,7 +177,7 @@ var extraBolt = 0;
         }
         var dropHeight = 0;
       $('.dropdown').each(function(index, el) { //remove atributo ativo de todos os dropdowns
-        
+
         if ($(this).hasClass('actived')) {
           dropHeight = $(this).find('.service-post-body').height() - 30;
           $(this).removeClass('actived');
@@ -321,4 +324,3 @@ var extraBolt = 0;
         }
     }
 })(jQuery);
-

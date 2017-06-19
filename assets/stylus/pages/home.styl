@@ -1,3 +1,33 @@
+.adv
+  display block
+  position fixed
+  top 0
+  left 0
+  height 100vh
+  z-index 1500
+  .adv-overlay
+    height 100%
+    position relative
+    background-color alpha(black, 70%)
+    padding-top 10vh
+    text-align center
+    .adv-close
+      position absolute
+      top 10vh
+      right 10vw
+      cursor pointer
+      color white
+      span
+        font-size 20px
+        color white
+        font-weight 600
+    .adv-image
+      img
+        max-width 90%
+
+
+.adv:not(.actived)
+  display none
 .welcome
   size 100
   min-height 100vh !important

@@ -74,9 +74,10 @@ wp_reset_query();
   </div>
 
   <div class="about-item hb-blue text-blue" id="mission">
-    <div class="about-item-bg desktop"></div>
-    <div class="container">
-        <?php foreach ($posts['mission'] as $post): ?>
+  <?php foreach ($posts['mission'] as $post): ?>
+    <div class="about-item-bg desktop" style="background-image: url('<?php echo $post['thumb']; ?>');">
+    </div>
+    <div class="container">        
             <div class="col-xs-12 col-md-7 about-item-content">
                 <div class="about-item-title">
                     <h2 class="text-title"><?php echo $post['title']; ?></h2>

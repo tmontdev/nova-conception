@@ -21,10 +21,10 @@
       <div class="header-first-line desktop">
         <div class="container">
           <div class="col-md-6 text-center">
-            Bem-Vindo à Conception Engenharia
+            <?php echo do_shortcode('[easy_options id="FLWelcome"]' ); ?>
           </div>
           <div class="col-md-6 text-center">
-            Adequado à ISO 9001
+            <?php echo do_shortcode(' [easy_options id="FLCREA"]' ); ?>
           </div>
         </div>
       </div>
@@ -63,7 +63,7 @@
 									<i class="fa fa-youtube text-green" aria-hidden="true"></i>
 								</div>
 							</a>
-							<a class="col-xs-4"href="https://www.facebook.com/ConceptionEngenharia/?ref=ts&fref=ts">
+							<a class="col-xs-4" href="<?php echo do_shortcode('[easy_options id="LinkedIn"]' ); ?>">
 								<div class="circle text-center text-green border-green">
 									<i class="fa fa-linkedin text-green" aria-hidden="true"></i>
 								</div>
@@ -99,12 +99,12 @@
 								<i class="fa fa-facebook text-white" aria-hidden="true"></i>
 							</div>
 						</a>
-						<a class="mobile col-xs-4"href="https://www.youtube.com/channel/UCZeUv9_Gf-5xEmAfe0QhJuA">
+						<a class="mobile col-xs-4" href="https://www.youtube.com/channel/UCZeUv9_Gf-5xEmAfe0QhJuA">
 							<div class="circle text-center text-white border-white">
 								<i class="fa fa-youtube text-white" aria-hidden="true"></i>
 							</div>
 						</a>
-						<a class="mobile col-xs-4"href="https://www.facebook.com/ConceptionEngenharia/?ref=ts&fref=ts">
+						<a class="mobile col-xs-4" href="<?php echo do_shortcode('[easy_options id="LinkedIn"]' ); ?>">
 							<div class="circle text-center text-white border-white">
 								<i class="fa fa-linkedin text-white" aria-hidden="true"></i>
 							</div>

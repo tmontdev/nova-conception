@@ -52,7 +52,7 @@ while ($downloads->have_posts()){
 
 $downloadsPosts = array_chunk($downloadPosts, 3);
 ?>
-<?php 
+<?php
 $imgPage = do_shortcode('[easy_options id="DownloadsBanner"]');
 include(get_template_directory()."/page-reference.php"); ?>
 
@@ -78,9 +78,9 @@ include(get_template_directory()."/page-reference.php"); ?>
                 <div class="category-search-field col-xs-12 col-md-6">
                     <select name="sCategory" class="whole-block" multiple="multiple" id="category-selection">
                         <option value="consulting">Consultoria</option>
-                        <option value="fire"> Combate ao Incendio</option>
+                        <option value="additional">Projetos Complementares</option>
+                        <option value="building">Execução de Obras</option>
                         <option value="security">Segurança do Trabalho</option>
-                        <option value="bolt">Eletricidade</option>
                     </select>
                 </div>
             </div>
@@ -132,6 +132,6 @@ include(get_template_directory()."/page-reference.php"); ?>
             }
             ?>
             	</div>
- 
-	
+
+
 </section>

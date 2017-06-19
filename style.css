@@ -795,7 +795,6 @@ body left 0 {
   font-family: 'Ubuntu';
 }
 .about .about-item .about-item-bg {
-  background-image: url("assets/img/about.jpg");
   z-index: -1;
   height: 100%;
   width: 60%;
@@ -1044,6 +1043,39 @@ body left 0 {
   background-color: #0c854d !important;
   height: 25px !important;
   line-height: 25px;
+}
+.adv {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  z-index: 1500;
+}
+.adv .adv-overlay {
+  height: 100%;
+  position: relative;
+  background-color: rgba(0,0,0,0.7);
+  padding-top: 10vh;
+  text-align: center;
+}
+.adv .adv-overlay .adv-close {
+  position: absolute;
+  top: 10vh;
+  right: 10vw;
+  cursor: pointer;
+  color: #fff;
+}
+.adv .adv-overlay .adv-close span {
+  font-size: 20px;
+  color: #fff;
+  font-weight: 600;
+}
+.adv .adv-overlay .adv-image img {
+  max-width: 90%;
+}
+.adv:not(.actived) {
+  display: none;
 }
 .welcome {
   width: 100%;

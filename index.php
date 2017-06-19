@@ -1,7 +1,34 @@
 <?php get_header(); ?>
+
+<?php
+$posts = array();
+$args = array(
+  'post_type' => 'Anuncios'
+);
+$query = new WP_Query( $args );
+while($query->have_posts()) {
+  $query->the_post();
+  $posts[] = array(
+    'title' => get_the_title(),
+    'thumb' => get_the_post_thumbnail_url(),
+  );
+}
+?>
+<?php foreach ($posts as $post): ?>
+<section class="adv whole-block actived">
+  <div class="adv-overlay whole-block">
+    <div class="adv-container container">
+      <div class="adv-close">
+        <span>X</span><br>fechar
+      </div>
+      <div class="adv-image">
+        <img src="<?php echo $post['thumb']; ?>">
+      </div>
+    </div>
+  </div>
+</section>
+<?php endforeach;  wp_reset_query();?>
 <section class="welcome" style="background-image: url('<?php echo do_shortcode('[easy_options id="HomePicture"]' ); ?>');">
-  
-</style>>
   <div class="overlay">
     <div class="container">
       <div class="row">
@@ -62,7 +89,8 @@
     <?php
     $posts = array();
     $args = array(
-    	'category_name' => 'Home'
+    	'post_type' => 'post',
+      'posts_per_page' => 3
     );
     $query = new WP_Query( $args );
     while($query->have_posts()) {

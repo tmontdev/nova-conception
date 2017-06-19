@@ -4,7 +4,7 @@
 */
 get_header();
 ?>
-<?php 
+<?php
 $imgPage = do_shortcode('[easy_options id="NewsBanner"]');
 include(get_template_directory()."/page-reference.php"); ?>
 
@@ -39,8 +39,7 @@ include(get_template_directory()."/page-reference.php"); ?>
     <?php
     $posts = array();
     $args = array(
-        'post_type' => 'post',
-    	'category_name' => 'Home'
+        'post_type' => 'post'
     );
 
     $search = isset($_GET['searchField']) ? trim($_GET['searchField']) : null;
