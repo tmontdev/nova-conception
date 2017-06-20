@@ -21,11 +21,13 @@ var extraBolt = 0;
   });
 })(jQuery);
 
-
-(function($){ //códígo home page e header
+(function($){
   $('.adv-close').click(function(event) {
     $('.adv').removeClass('actived');
   });
+})(jQuery);
+
+(function($){ //códígo home page e header
   if ($(window).width() <768) {//Programação para dispositivos mobile
     //variaveis
     var headerHeight = $('.mobile-header').height();
@@ -102,10 +104,10 @@ var extraBolt = 0;
     //variaveis
     var headerHeight = $('.mobile-header').height() + 10;
   }  else {// programação para desktops
-    var headerHeight = $('.header').height() - $('.header-menu').height() - 40;
+    var headerHeight = $('.header').height() - $('.header-menu').height() - 20;
   }
 
-      var distance = $('.page-reference').height() - 50;
+      var distance = $('.page-reference').height() - headerHeight;
 
       $(window).scroll(function(){
       if($(this).scrollTop() > distance){

@@ -391,13 +391,11 @@ body left 0 {
   line-height: 8vh;
   text-align: center;
   background-color: transparent;
-  border: solid 1px #0c854d;
   color: #0c854d;
   padding: 0 !important;
   margin: 0 !important;
   font-size: 6vh;
   width: 8vh;
-  border-radius: 4px;
 }
 #header .hidden {
   opacity: 0;

@@ -95,7 +95,6 @@ include(get_template_directory()."/page-reference.php"); ?>
 	<div class="container">
 		<div class="row downloads-selections-title text-center">
 			<h3 class="text-title"><span class="fa fa-download"> </span> Downloads</h3>
-			<h4 class="text-subtitle">Todas as Categorias: <span>Consultoria</span> <span>Combate ao Incendio</span> <span>Segurança no Trabalho</span> <span>Eletricidade</span></h4>
 		</div>
 		<div class="whole-block downloads-square">
             <?php
