@@ -17,8 +17,8 @@ $posts = array(
 );
 
 $args = array(
-  'post_type' => 'about',
-    'posts_per_page' => 1
+    'post_type' => 'about',
+    'posts_per_page' => -1
 );
 $query = new WP_Query( $args );
 while($query->have_posts()) {
