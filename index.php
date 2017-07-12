@@ -11,10 +11,12 @@ while($query->have_posts()) {
   $posts[] = array(
     'title' => get_the_title(),
     'thumb' => get_the_post_thumbnail_url(),
+    'link' => get_field('link')
   );
 }
 ?>
 <?php foreach ($posts as $post): ?>
+
 <section class="adv whole-block actived">
   <div class="adv-overlay whole-block">
     <div class="adv-container container">
@@ -22,7 +24,7 @@ while($query->have_posts()) {
         <span>X</span><br>fechar
       </div>
       <div class="adv-image">
-        <img src="<?php echo $post['thumb']; ?>">
+        <a href="<?php echo $post['link']?>"><img src="<?php echo $post['thumb']; ?>"></a>
       </div>
     </div>
   </div>

@@ -5,7 +5,14 @@
       // If a static page is set as the front page, $pagename will not be set. Retrieve it from the queried object
       $post = $wp_query->get_queried_object();
       $pagename = $post->post_name;
-    } ?>
+
+    }
+
+    if (! $pagename && isset($newTitle)) {
+
+      $pagename = 'Notícias > '.$newTitle;
+    }
+    ?>
   <div class="pr-bg" style="background-image: url('<?php echo $imgPage; ?>');"></div>
   <div class="pr-line">
     <div class="container">
@@ -14,5 +21,3 @@
     </div>
   </div>
 </section>
-
-
