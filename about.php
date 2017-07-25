@@ -4,7 +4,7 @@
 */
 get_header();
 ?>
-<?php 
+<?php
 $imgPage = do_shortcode('[easy_options id="AboutBanner"]');
 include(get_template_directory()."/page-reference.php"); ?>
 <?php
@@ -26,7 +26,7 @@ while($query->have_posts()) {
   $id = get_the_ID();
   $type = get_post_meta($id, 'information-type', true);
 
-  $posts[$type][] = array(
+  $posts[$type] = array(
     'title' => get_the_title(),
     'description' => get_the_content(),
     'type' => $type,
@@ -59,71 +59,62 @@ wp_reset_query();
     </div>
   </div>
   <div class="about-item hb-green text-green actived" id="company">
-    <div class="about-item-bg desktop"></div>
+    <div class="about-item-bg desktop" style="background-image:url('<?php echo $posts['company']['thumb']; ?>"></div>
     <div class="container">
-        <?php foreach ($posts['company'] as $post): ?>
           <div class="col-xs-12 col-md-7 about-item-content">
 
             <div class="about-item-title">
-              <h2 class="text-title"><?php echo $post['title']; ?></h2>
-              <p><?php echo $post['description']; ?></p>
+              <h2 class="text-title"><?php echo $posts['company']['title']; ?></h2>
+              <p><?php echo $posts['company']['description']; ?></p>
             </div>
           </div>
-        <?php endforeach;  ?>
     </div>
   </div>
 
   <div class="about-item hb-blue text-blue" id="mission">
-    <div class="about-item-bg desktop" style="background-image: url('<?php echo $post['thumb']; ?>');">
+    <div class="about-item-bg desktop" style="background-image: url('<?php echo $posts['mission']['thumb']; ?>');">
     </div>
     <div class="container">
-        <?php foreach ($posts['mission'] as $post): ?>
             <div class="col-xs-12 col-md-7 about-item-content">
                 <div class="about-item-title">
-                    <h2 class="text-title"><?php echo $post['title']; ?></h2>
-                    <p><?php echo $post['description']; ?></p>
+                    <h2 class="text-title"><?php echo $posts['mission']['title']; ?></h2>
+                    <p><?php echo $posts['mission']['description']; ?></p>
                 </div>
             </div>
-        <?php endforeach; ?>
     </div>
   </div>
   <div class="about-item hb-green text-green" id="vision">
-      <div class="about-item-bg desktop"></div>
+    <div class="about-item-bg desktop" style="background-image: url('<?php echo $posts['vision']['thumb']; ?>');">
+    </div>
       <div class="container">
-          <?php foreach ($posts['vision'] as $post): ?>
-              <div class="col-xs-12 col-md-7 about-item-content">
-                  <div class="about-item-title">
-                      <h2 class="text-title"><?php echo $post['title']; ?></h2>
-                      <p><?php echo $post['description']; ?></p>
-                  </div>
+          <div class="col-xs-12 col-md-7 about-item-content">
+              <div class="about-item-title">
+                  <h2 class="text-title"><?php echo $posts['vision']['title']; ?></h2>
+                  <p><?php echo $posts['vision']['description']; ?></p>
               </div>
-          <?php endforeach; ?>
+          </div>
       </div>
   </div>
   <div class="about-item hb-blue text-blue" id="values">
-    <div class="about-item-bg desktop"></div>
+    <div class="about-item-bg desktop" style="background-image: url('<?php echo $posts['values']['thumb']; ?>');">
+    </div>
     <div class="container">
-        <?php foreach ($posts['values'] as $post): ?>
-            <div class="col-xs-12 col-md-7 about-item-content">
-                <div class="about-item-title">
-                    <h2 class="text-title"><?php echo $post['title']; ?></h2>
-                    <p><?php echo $post['description']; ?></p>
-                </div>
+        <div class="col-xs-12 col-md-7 about-item-content">
+            <div class="about-item-title">
+                <h2 class="text-title"><?php echo $posts['values']['title']; ?></h2>
+                <p><?php echo $posts['values']['description']; ?></p>
             </div>
-        <?php endforeach; ?>
+        </div>
     </div>
   </div>
   <div class="about-item hb-green text-green" id="partners">
-    <div class="about-item-bg desktop"></div>
     <div class="container">
-        <?php foreach ($posts['partners'] as $post): ?>
-            <div class="col-xs-12 col-md-7 about-item-content">
+            <div class="col-xs-12 about-item-content">
                 <div class="about-item-title">
-                    <h2 class="text-title"><?php echo $post['title']; ?></h2>
-                    <p><?php echo $post['description']; ?></p>
+                    <h2 class="text-title"><?php echo $posts['partners']['title']; ?></h2>
+                    <p><?php echo $posts['partners']['description']; ?></p>
                 </div>
             </div>
-        <?php endforeach; ?>
     </div>
   </div>
 </section>
